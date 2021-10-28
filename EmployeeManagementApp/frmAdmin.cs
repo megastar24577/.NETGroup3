@@ -46,21 +46,5 @@ namespace EmployeeManagementApp
         {
             grvMemberList.DataSource = employeeRepository.GetAllManager("R2");
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            UserControl1 us1 = new UserControl1();
-            panel3.Controls.Add(us1);
-            us1.Dock = DockStyle.Fill;
-            us1.BringToFront();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            UserControl2 us2 = new UserControl2();
-            panel3.Controls.Add(us2);
-            us2.Dock = DockStyle.Fill;
-            us2.BringToFront();
-        }
     }
 }

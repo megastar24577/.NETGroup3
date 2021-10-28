@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BusinessLayer.Models;
+
+namespace DataAccess.Repository
+{
+    public interface IEmployeeRepository
+    {
+
+        List<Employee> GetAllEmployees();
+
+        List<Employee> GetAllManager(string roleId);
+        Employee GetEmployeeById(string employeeId);
+
+        void UpdateEmployee(Employee updateEmployee);
+
+        void DeleteEmployee(Employee deleteEmployee);
+
+        void AddEmployee(Employee newEmployee);
+    }
+}

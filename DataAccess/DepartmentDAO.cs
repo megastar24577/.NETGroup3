@@ -39,8 +39,7 @@ namespace DataAccess
         {
             using (_databaseContext = new EManagerPRNContext())
             {
-                _databaseContext.Remove<Department>(deletedDepartment);
-
+                _databaseContext.Remove<Department>(deletedDepartment); 
                 _databaseContext.SaveChanges();
             }
         }

@@ -46,7 +46,7 @@ namespace DataAccess
         {
             using (_databaseContext = new EManagerPRNContext())
             {
-                _databaseContext.Remove(deleteSalary);
+                _databaseContext.Remove<Salary>(deleteSalary);
                 _databaseContext.SaveChanges();
             }
         }
@@ -55,7 +55,7 @@ namespace DataAccess
         {
             using (_databaseContext = new EManagerPRNContext())
             {
-                _databaseContext.Add(updateSalary);
+                _databaseContext.Update<Salary>(updateSalary);
                 _databaseContext.SaveChanges();
             }
         }

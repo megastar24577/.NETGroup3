@@ -23,9 +23,9 @@ namespace BusinessLayer.Models
         public string Email { get; set; }
         public string DepartmentId { get; set; }
 
-        public virtual Department Department { get; set; }
-        public virtual Role Role { get; set; }
-        public virtual ICollection<Department> Departments { get; set; }
-        public virtual ICollection<Salary> Salaries { get; set; }
+        public Department Department { get; set; }
+        public Role Role { get; set; }
+        public ICollection<Department> Departments { get; set; }
+        public ICollection<Salary> Salaries { get; set; }
     }
 }

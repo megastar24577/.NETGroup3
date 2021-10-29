@@ -30,18 +30,18 @@ namespace MyStoreWinApp
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtManagerEmail = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbEmail = new System.Windows.Forms.Label();
             this.txtManagerMemberID = new System.Windows.Forms.TextBox();
             this.lbName = new System.Windows.Forms.Label();
             this.txtManagerName = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.Label();
             this.txtManagerPassword = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.lbCountry = new System.Windows.Forms.Label();
-            this.txtCity = new System.Windows.Forms.TextBox();
             this.txtManagerCountry = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbEmail = new System.Windows.Forms.Label();
+            this.txtCity = new System.Windows.Forms.TextBox();
+            this.txtManagerEmail = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtTiltle = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -84,14 +84,6 @@ namespace MyStoreWinApp
             this.tableLayoutPanel1.Size = new System.Drawing.Size(694, 387);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // txtManagerEmail
-            // 
-            this.txtManagerEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtManagerEmail.Location = new System.Drawing.Point(261, 210);
-            this.txtManagerEmail.Name = "txtManagerEmail";
-            this.txtManagerEmail.Size = new System.Drawing.Size(324, 27);
-            this.txtManagerEmail.TabIndex = 9;
-            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -103,17 +95,6 @@ namespace MyStoreWinApp
             this.label1.TabIndex = 0;
             this.label1.Text = "MemberID:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbEmail
-            // 
-            this.lbEmail.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbEmail.AutoSize = true;
-            this.lbEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbEmail.Location = new System.Drawing.Point(3, 214);
-            this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(53, 20);
-            this.lbEmail.TabIndex = 4;
-            this.lbEmail.Text = "Email: ";
             // 
             // txtManagerMemberID
             // 
@@ -162,17 +143,6 @@ namespace MyStoreWinApp
             this.txtManagerPassword.TabIndex = 11;
             this.txtManagerPassword.TabStop = false;
             // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(3, 278);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "City:";
-            // 
             // lbCountry
             // 
             this.lbCountry.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -184,14 +154,6 @@ namespace MyStoreWinApp
             this.lbCountry.TabIndex = 1;
             this.lbCountry.Text = "Company Name:";
             // 
-            // txtCity
-            // 
-            this.txtCity.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCity.Location = new System.Drawing.Point(261, 274);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(324, 27);
-            this.txtCity.TabIndex = 8;
-            // 
             // txtManagerCountry
             // 
             this.txtManagerCountry.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -200,6 +162,44 @@ namespace MyStoreWinApp
             this.txtManagerCountry.Size = new System.Drawing.Size(324, 27);
             this.txtManagerCountry.TabIndex = 6;
             // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(3, 278);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 20);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "City:";
+            // 
+            // lbEmail
+            // 
+            this.lbEmail.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbEmail.Location = new System.Drawing.Point(3, 214);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(53, 20);
+            this.lbEmail.TabIndex = 4;
+            this.lbEmail.Text = "Email: ";
+            // 
+            // txtCity
+            // 
+            this.txtCity.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCity.Location = new System.Drawing.Point(261, 274);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(324, 27);
+            this.txtCity.TabIndex = 8;
+            // 
+            // txtManagerEmail
+            // 
+            this.txtManagerEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtManagerEmail.Location = new System.Drawing.Point(261, 210);
+            this.txtManagerEmail.Name = "txtManagerEmail";
+            this.txtManagerEmail.Size = new System.Drawing.Size(324, 27);
+            this.txtManagerEmail.TabIndex = 9;
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -207,7 +207,7 @@ namespace MyStoreWinApp
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.22727F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.77273F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel2.Controls.Add(this.txtTiltle, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(47, 12);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -237,7 +237,7 @@ namespace MyStoreWinApp
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.btnCancel, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnSave, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(234, 541);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(235, 566);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -266,7 +266,7 @@ namespace MyStoreWinApp
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // FrmMemberDetail
+            // frmManagerDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -274,7 +274,7 @@ namespace MyStoreWinApp
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "FrmMemberDetail";
+            this.Name = "frmManagerDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMemberDetail";
             this.Load += new System.EventHandler(this.FrmMemberDetail_Load);

@@ -47,7 +47,7 @@ namespace MyStoreWinApp
             {
                 if (admin.email.Equals(email) && admin.password.Equals(password))
                 {
-                    frmAdmin menuForm = frmAdmin.Instance;
+                    frmMenu menuForm = frmMenu.Instance;
                     menuForm.IsAdmin = true;
                     menuForm.Closed += (sender, e) => this.Close();
                     this.Hide();

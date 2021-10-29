@@ -55,7 +55,7 @@ namespace EmployeeManagementApp
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.22727F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.77273F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 113F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
             this.tableLayoutPanel2.Controls.Add(this.txtTiltle, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(57, 12);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -70,7 +70,7 @@ namespace EmployeeManagementApp
             this.txtTiltle.AutoSize = true;
             this.txtTiltle.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtTiltle.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.txtTiltle.Location = new System.Drawing.Point(198, 23);
+            this.txtTiltle.Location = new System.Drawing.Point(197, 23);
             this.txtTiltle.Name = "txtTiltle";
             this.txtTiltle.Size = new System.Drawing.Size(373, 38);
             this.txtTiltle.TabIndex = 0;
@@ -175,11 +175,11 @@ namespace EmployeeManagementApp
             // 
             this.lbManagerId.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbManagerId.AutoSize = true;
-            this.lbManagerId.Location = new System.Drawing.Point(3, 202);
+            this.lbManagerId.Location = new System.Drawing.Point(3, 192);
             this.lbManagerId.Name = "lbManagerId";
-            this.lbManagerId.Size = new System.Drawing.Size(90, 20);
+            this.lbManagerId.Size = new System.Drawing.Size(141, 40);
             this.lbManagerId.TabIndex = 12;
-            this.lbManagerId.Text = "Manager ID:";
+            this.lbManagerId.Text = "Manager ID: (empty able)";
             // 
             // tableLayoutPanel3
             // 

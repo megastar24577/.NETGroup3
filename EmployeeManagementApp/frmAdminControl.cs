@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer.Models;
 using DataAccess.Repository;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MyStoreWinApp;
 
 namespace EmployeeManagementApp
@@ -17,6 +10,10 @@ namespace EmployeeManagementApp
     public partial class frmAdminControl : UserControl
     {
         private IEmployeeRepository employeeRepository;
+
+        private IDepartmentRepository departmentRepository;
+
+        BindingSource source;
         //Singleton
         private static frmAdminControl _instance;
 
@@ -36,6 +33,7 @@ namespace EmployeeManagementApp
         {
             InitializeComponent();
             employeeRepository = new EmployeeRepository();
+            departmentRepository = new DeparmentRepository();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -85,5 +83,106 @@ namespace EmployeeManagementApp
         }
 
 
+        //---------------------------------------------------------------------------------------------
+
+
+        private Department GetDepartment()
+        {
+            Department depart = null;
+            depart = new Department
+            {
+                DepartmentId = txtDepartmentID.Text,
+                DepartmentName = txtDepartmentName.Text,
+                ManagerId = txtDeparmentManagerId.Text,
+                BaseSalary = short.Parse(txtDepartmentBaseSalary.Text),
+            };
+            return depart;
+        }
+
+        private void LoadDepartmentList()
+        {
+            IEnumerable<Department> departments = null;
+            departments = departmentRepository.GetAllDepartments();
+
+            try
+            {
+                source = new BindingSource();
+                source.DataSource = departments;
+
+                txtDepartmentID.DataBindings.Clear();
+                txtDepartmentName.DataBindings.Clear();
+                txtDeparmentManagerId.DataBindings.Clear();
+                txtDepartmentBaseSalary.DataBindings.Clear();
+
+
+                txtDepartmentID.DataBindings.Add("Text", source, "DepartmentId");
+                txtDepartmentName.DataBindings.Add("Text", source, "DepartmentName");
+                txtDeparmentManagerId.DataBindings.Add("Text", source, "ManagerId");
+                txtDepartmentBaseSalary.DataBindings.Add("Text", source, "BaseSalary");
+
+                dgvDepartment.DataSource = null;
+                dgvDepartment.DataSource = source;
+                dgvDepartment.Columns[4].Visible = false;
+                dgvDepartment.Columns[5].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Load department list");
+            }
+        }
+
+        private void btnLoadDepartment_Click(object sender, EventArgs e)
+        {
+            LoadDepartmentList();
+        }
+
+        private void btnNewDepartment_Click(object sender, EventArgs e)
+        {
+            frmDepartmentDetail frmDepartmentDetail = new frmDepartmentDetail
+            {
+                InsertOrUpdate = false,
+                Text = "New Department",
+                deparmentRepository = departmentRepository,
+            };
+            if(frmDepartmentDetail.ShowDialog() == DialogResult.OK)
+            {
+                LoadDepartmentList();
+                source.Position = source.Count - 1;
+            }
+        }
+
+        private void dgvDepartment_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frmDepartmentDetail frmDepartmentDetail = new frmDepartmentDetail
+            {
+                Text = "Update Department",
+                InsertOrUpdate = true,
+                deparmentRepository = departmentRepository,
+                DepartmentInfo = GetDepartment()
+            };
+            if(frmDepartmentDetail.ShowDialog() == DialogResult.OK)
+            {
+                LoadDepartmentList();
+                source.Position = source.Count - 1;
+            }
+
+        }
+
+        private void btnDepartmentDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Department depart = GetDepartment();
+                departmentRepository.DeleteDepartment(depart);
+                LoadDepartmentList();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message, "Delete Department");
+            }
+        }
+
+        private void frmAdminControl_Load(object sender, EventArgs e)
+        {
+            dgvDepartment.CellDoubleClick += dgvDepartment_CellContentClick;
+        }
     }
 }

@@ -32,16 +32,19 @@ namespace EmployeeManagementApp
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtDepartmentBaseSalary = new System.Windows.Forms.TextBox();
             this.txtDepartmentName = new System.Windows.Forms.TextBox();
             this.lbDeparmentId = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtDepartmentID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtDepartmentId = new System.Windows.Forms.TextBox();
+            this.txtDepartmentBaseSalary = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbManagerId = new System.Windows.Forms.Label();
+            this.txtDeparmentManagerId = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnLoadDepartment = new System.Windows.Forms.Button();
             this.btnNewDepartment = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnDepartmentDelete = new System.Windows.Forms.Button();
+            this.btnLoadDepartment = new System.Windows.Forms.Button();
+            this.dgvDepartment = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtSearchDepartment = new System.Windows.Forms.TextBox();
             this.btnSearchDepartment = new System.Windows.Forms.Button();
@@ -57,7 +60,7 @@ namespace EmployeeManagementApp
             this.btnNew = new System.Windows.Forms.Button();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartment)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvMemberList)).BeginInit();
@@ -90,33 +93,28 @@ namespace EmployeeManagementApp
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.46259F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.53741F));
-            this.tableLayoutPanel3.Controls.Add(this.txtDepartmentBaseSalary, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.txtDepartmentName, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.lbDeparmentId, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.txtDepartmentID, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label2, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.txtDepartmentBaseSalary, 1, 3);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.txtDepartmentId, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lbManagerId, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.txtDeparmentManagerId, 1, 2);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(724, 111);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(558, 221);
             this.tableLayoutPanel3.TabIndex = 15;
-            // 
-            // txtDepartmentBaseSalary
-            // 
-            this.txtDepartmentBaseSalary.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtDepartmentBaseSalary.Location = new System.Drawing.Point(178, 178);
-            this.txtDepartmentBaseSalary.Name = "txtDepartmentBaseSalary";
-            this.txtDepartmentBaseSalary.Size = new System.Drawing.Size(341, 27);
-            this.txtDepartmentBaseSalary.TabIndex = 5;
             // 
             // txtDepartmentName
             // 
             this.txtDepartmentName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtDepartmentName.Location = new System.Drawing.Point(178, 108);
+            this.txtDepartmentName.Location = new System.Drawing.Point(178, 75);
             this.txtDepartmentName.Name = "txtDepartmentName";
             this.txtDepartmentName.Size = new System.Drawing.Size(341, 27);
             this.txtDepartmentName.TabIndex = 4;
@@ -126,85 +124,128 @@ namespace EmployeeManagementApp
             this.lbDeparmentId.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbDeparmentId.AutoSize = true;
             this.lbDeparmentId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbDeparmentId.Location = new System.Drawing.Point(3, 26);
+            this.lbDeparmentId.Location = new System.Drawing.Point(3, 15);
             this.lbDeparmentId.Name = "lbDeparmentId";
             this.lbDeparmentId.Size = new System.Drawing.Size(145, 28);
             this.lbDeparmentId.TabIndex = 0;
             this.lbDeparmentId.Text = "Department ID:";
             // 
-            // label1
+            // txtDepartmentID
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(3, 93);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 56);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Department Name:";
+            this.txtDepartmentID.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtDepartmentID.Location = new System.Drawing.Point(178, 16);
+            this.txtDepartmentID.Name = "txtDepartmentID";
+            this.txtDepartmentID.Size = new System.Drawing.Size(144, 27);
+            this.txtDepartmentID.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(3, 177);
+            this.label2.Location = new System.Drawing.Point(3, 180);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 28);
             this.label2.TabIndex = 2;
             this.label2.Text = "Base Salary:";
             // 
-            // txtDepartmentId
+            // txtDepartmentBaseSalary
             // 
-            this.txtDepartmentId.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtDepartmentId.Location = new System.Drawing.Point(178, 27);
-            this.txtDepartmentId.Name = "txtDepartmentId";
-            this.txtDepartmentId.Size = new System.Drawing.Size(144, 27);
-            this.txtDepartmentId.TabIndex = 6;
+            this.txtDepartmentBaseSalary.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtDepartmentBaseSalary.Location = new System.Drawing.Point(178, 181);
+            this.txtDepartmentBaseSalary.Name = "txtDepartmentBaseSalary";
+            this.txtDepartmentBaseSalary.Size = new System.Drawing.Size(341, 27);
+            this.txtDepartmentBaseSalary.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(3, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 56);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Department Name:";
+            // 
+            // lbManagerId
+            // 
+            this.lbManagerId.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbManagerId.AutoSize = true;
+            this.lbManagerId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbManagerId.Location = new System.Drawing.Point(3, 129);
+            this.lbManagerId.Name = "lbManagerId";
+            this.lbManagerId.Size = new System.Drawing.Size(118, 28);
+            this.lbManagerId.TabIndex = 7;
+            this.lbManagerId.Text = "Manager ID:";
+            // 
+            // txtDeparmentManagerId
+            // 
+            this.txtDeparmentManagerId.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtDeparmentManagerId.Location = new System.Drawing.Point(178, 129);
+            this.txtDeparmentManagerId.Name = "txtDeparmentManagerId";
+            this.txtDeparmentManagerId.Size = new System.Drawing.Size(144, 27);
+            this.txtDeparmentManagerId.TabIndex = 8;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.btnLoadDepartment, 1, 0);
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.64151F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.35849F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
             this.tableLayoutPanel1.Controls.Add(this.btnNewDepartment, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnDepartmentDelete, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnLoadDepartment, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(724, 346);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(229, 32);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(288, 32);
             this.tableLayoutPanel1.TabIndex = 14;
-            // 
-            // btnLoadDepartment
-            // 
-            this.btnLoadDepartment.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLoadDepartment.Location = new System.Drawing.Point(124, 3);
-            this.btnLoadDepartment.Name = "btnLoadDepartment";
-            this.btnLoadDepartment.Size = new System.Drawing.Size(94, 26);
-            this.btnLoadDepartment.TabIndex = 1;
-            this.btnLoadDepartment.Text = "Load";
-            this.btnLoadDepartment.UseVisualStyleBackColor = true;
             // 
             // btnNewDepartment
             // 
             this.btnNewDepartment.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnNewDepartment.Location = new System.Drawing.Point(10, 3);
+            this.btnNewDepartment.Location = new System.Drawing.Point(4, 3);
             this.btnNewDepartment.Name = "btnNewDepartment";
-            this.btnNewDepartment.Size = new System.Drawing.Size(94, 26);
+            this.btnNewDepartment.Size = new System.Drawing.Size(82, 26);
             this.btnNewDepartment.TabIndex = 0;
             this.btnNewDepartment.Text = "New";
             this.btnNewDepartment.UseVisualStyleBackColor = true;
+            this.btnNewDepartment.Click += new System.EventHandler(this.btnNewDepartment_Click);
             // 
-            // dataGridView1
+            // btnDepartmentDelete
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(724, 384);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(558, 242);
-            this.dataGridView1.TabIndex = 13;
+            this.btnDepartmentDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDepartmentDelete.Location = new System.Drawing.Point(194, 3);
+            this.btnDepartmentDelete.Name = "btnDepartmentDelete";
+            this.btnDepartmentDelete.Size = new System.Drawing.Size(88, 26);
+            this.btnDepartmentDelete.TabIndex = 2;
+            this.btnDepartmentDelete.Text = "Delete";
+            this.btnDepartmentDelete.UseVisualStyleBackColor = true;
+            this.btnDepartmentDelete.Click += new System.EventHandler(this.btnDepartmentDelete_Click);
+            // 
+            // btnLoadDepartment
+            // 
+            this.btnLoadDepartment.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLoadDepartment.Location = new System.Drawing.Point(93, 3);
+            this.btnLoadDepartment.Name = "btnLoadDepartment";
+            this.btnLoadDepartment.Size = new System.Drawing.Size(93, 26);
+            this.btnLoadDepartment.TabIndex = 1;
+            this.btnLoadDepartment.Text = "Load";
+            this.btnLoadDepartment.UseVisualStyleBackColor = true;
+            this.btnLoadDepartment.Click += new System.EventHandler(this.btnLoadDepartment_Click);
+            // 
+            // dgvDepartment
+            // 
+            this.dgvDepartment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDepartment.Location = new System.Drawing.Point(724, 384);
+            this.dgvDepartment.Name = "dgvDepartment";
+            this.dgvDepartment.RowHeadersWidth = 51;
+            this.dgvDepartment.RowTemplate.Height = 29;
+            this.dgvDepartment.Size = new System.Drawing.Size(558, 242);
+            this.dgvDepartment.TabIndex = 13;
+            this.dgvDepartment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartment_CellContentClick);
             // 
             // tableLayoutPanel2
             // 
@@ -347,15 +388,16 @@ namespace EmployeeManagementApp
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvDepartment);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.panel2);
             this.Name = "frmAdminControl";
             this.Size = new System.Drawing.Size(1300, 650);
+            this.Load += new System.EventHandler(this.frmAdminControl_Load);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartment)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -376,11 +418,11 @@ namespace EmployeeManagementApp
         private System.Windows.Forms.Label lbDeparmentId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtDepartmentId;
+        private System.Windows.Forms.TextBox txtDepartmentID;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnLoadDepartment;
         private System.Windows.Forms.Button btnNewDepartment;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDepartment;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TextBox txtSearchDepartment;
         private System.Windows.Forms.Button btnSearchDepartment;
@@ -394,5 +436,8 @@ namespace EmployeeManagementApp
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.DataGridView grvMemberList;
         private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Label lbManagerId;
+        private System.Windows.Forms.TextBox txtDeparmentManagerId;
+        private System.Windows.Forms.Button btnDepartmentDelete;
     }
 }

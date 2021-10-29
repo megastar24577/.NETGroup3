@@ -32,9 +32,9 @@ namespace EmployeeManagementApp
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Welcome = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAdminPage = new System.Windows.Forms.Button();
-            this.btnManagerPage = new System.Windows.Forms.Button();
             this.btnEmployeePage = new System.Windows.Forms.Button();
+            this.btnManagerPage = new System.Windows.Forms.Button();
+            this.btnAdminPage = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -46,7 +46,7 @@ namespace EmployeeManagementApp
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.95893F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.04108F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 154F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 155F));
             this.tableLayoutPanel1.Controls.Add(this.Welcome, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -61,9 +61,9 @@ namespace EmployeeManagementApp
             this.Welcome.AutoSize = true;
             this.Welcome.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Welcome.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.Welcome.Location = new System.Drawing.Point(252, 21);
+            this.Welcome.Location = new System.Drawing.Point(253, 22);
             this.Welcome.Name = "Welcome";
-            this.Welcome.Size = new System.Drawing.Size(228, 60);
+            this.Welcome.Size = new System.Drawing.Size(225, 59);
             this.Welcome.TabIndex = 0;
             this.Welcome.Text = "WELCOME";
             // 
@@ -77,47 +77,47 @@ namespace EmployeeManagementApp
             this.tableLayoutPanel2.Controls.Add(this.btnEmployeePage, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.btnManagerPage, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.btnAdminPage, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(132, 151);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(132, 134);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(474, 226);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(474, 270);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // btnAdminPage
+            // btnEmployeePage
             // 
-            this.btnAdminPage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAdminPage.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAdminPage.Location = new System.Drawing.Point(121, 11);
-            this.btnAdminPage.Name = "btnAdminPage";
-            this.btnAdminPage.Size = new System.Drawing.Size(232, 53);
-            this.btnAdminPage.TabIndex = 4;
-            this.btnAdminPage.Text = "Admin Page";
-            this.btnAdminPage.UseVisualStyleBackColor = true;
+            this.btnEmployeePage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEmployeePage.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEmployeePage.Location = new System.Drawing.Point(121, 200);
+            this.btnEmployeePage.Name = "btnEmployeePage";
+            this.btnEmployeePage.Size = new System.Drawing.Size(232, 49);
+            this.btnEmployeePage.TabIndex = 6;
+            this.btnEmployeePage.Text = "Employee Page";
+            this.btnEmployeePage.UseVisualStyleBackColor = true;
             // 
             // btnManagerPage
             // 
             this.btnManagerPage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnManagerPage.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnManagerPage.Location = new System.Drawing.Point(121, 85);
+            this.btnManagerPage.Location = new System.Drawing.Point(121, 108);
             this.btnManagerPage.Name = "btnManagerPage";
             this.btnManagerPage.Size = new System.Drawing.Size(232, 54);
             this.btnManagerPage.TabIndex = 5;
             this.btnManagerPage.Text = "Manager Page";
             this.btnManagerPage.UseVisualStyleBackColor = true;
             // 
-            // btnEmployeePage
+            // btnAdminPage
             // 
-            this.btnEmployeePage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEmployeePage.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEmployeePage.Location = new System.Drawing.Point(121, 163);
-            this.btnEmployeePage.Name = "btnEmployeePage";
-            this.btnEmployeePage.Size = new System.Drawing.Size(232, 49);
-            this.btnEmployeePage.TabIndex = 6;
-            this.btnEmployeePage.Text = "Employee Page";
-            this.btnEmployeePage.UseVisualStyleBackColor = true;
+            this.btnAdminPage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAdminPage.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdminPage.Location = new System.Drawing.Point(121, 18);
+            this.btnAdminPage.Name = "btnAdminPage";
+            this.btnAdminPage.Size = new System.Drawing.Size(232, 53);
+            this.btnAdminPage.TabIndex = 4;
+            this.btnAdminPage.Text = "Admin Page";
+            this.btnAdminPage.UseVisualStyleBackColor = true;
             // 
             // MainPage
             // 

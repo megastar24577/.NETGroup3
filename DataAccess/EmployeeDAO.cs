@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessLayer.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess
 {
@@ -48,8 +49,11 @@ namespace DataAccess
 
         public void DeleteEmployee(Employee deleteEmployee)
         {
-            _databaseContext.Remove<Employee>(deleteEmployee);
-            _databaseContext.SaveChanges();
+            using (_databaseContext = new EManagerPRNContext())
+            {
+                _databaseContext.Remove<Employee>(deleteEmployee);
+                _databaseContext.SaveChanges();
+            }
         }
 
         public void UpdateEmployee(Employee updateEmployee)

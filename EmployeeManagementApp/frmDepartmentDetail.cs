@@ -34,12 +34,18 @@ namespace EmployeeManagementApp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
+                var managerIdCheck = txtDepartmentManagerId.Text;
+                if (managerIdCheck == "")
+                {
+                    managerIdCheck = null;
+                }
                 var Department = new Department
                 {
                     DepartmentId = txtDepartmentID.Text,
                     DepartmentName = txtDepartmentName.Text,
-                    ManagerId = txtDepartmentManagerId.Text,
+                    ManagerId = managerIdCheck,
                     BaseSalary = short.Parse(txtDepartmentBaseSalary.Text),
                 };
 

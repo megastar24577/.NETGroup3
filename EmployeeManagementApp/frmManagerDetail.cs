@@ -28,6 +28,7 @@ namespace MyStoreWinApp
 
         private void FrmMemberDetail_Load(object sender, EventArgs e)
         {
+
             //Add all role to combo box
             List<Role> listOfRoles = roleRepository.GetRoles();
             foreach (var role in listOfRoles)
@@ -95,6 +96,7 @@ namespace MyStoreWinApp
 
             Close();
         }
+
 
         private void btnCancel_Click(object sender, EventArgs e) => Close();
 

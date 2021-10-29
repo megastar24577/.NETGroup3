@@ -167,7 +167,7 @@ namespace MyStoreWinApp
             this.label4.Size = new System.Drawing.Size(39, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Role";
-            // 
+            //
             // txtPassword
             // 
             this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -300,7 +300,7 @@ namespace MyStoreWinApp
             this.txtTiltle.AutoSize = true;
             this.txtTiltle.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtTiltle.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.txtTiltle.Location = new System.Drawing.Point(222, 23);
+            this.txtTiltle.Location = new System.Drawing.Point(221, 23);
             this.txtTiltle.Name = "txtTiltle";
             this.txtTiltle.Size = new System.Drawing.Size(351, 38);
             this.txtTiltle.TabIndex = 0;
@@ -355,7 +355,6 @@ namespace MyStoreWinApp
             this.Name = "frmManagerDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMemberDetail";
-            this.Load += new System.EventHandler(this.FrmMemberDetail_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

@@ -30,29 +30,29 @@ namespace MyStoreWinApp
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.roleCombobox = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtEmployeeId = new System.Windows.Forms.TextBox();
-            this.lbName = new System.Windows.Forms.Label();
             this.txtEmployeeName = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lbCountry = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lbCountry = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.lbName = new System.Windows.Forms.Label();
+            this.lbPassword = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
-            this.txtMemPassword = new System.Windows.Forms.TextBox();
+            this.deparmentCombobox = new System.Windows.Forms.ComboBox();
+            this.txtPhone = new System.Windows.Forms.MaskedTextBox();
+            this.dtpBirthDate = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtTiltle = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.deparmentCombobox = new System.Windows.Forms.ComboBox();
-            this.roleCombobox = new System.Windows.Forms.ComboBox();
-            this.txtPhone = new System.Windows.Forms.MaskedTextBox();
-            this.dtpBirthDate = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -73,13 +73,13 @@ namespace MyStoreWinApp
             this.tableLayoutPanel1.Controls.Add(this.txtEmployeeName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtEmail, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txtMemPassword, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtPassword, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lbCountry, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.txtAddress, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.lbName, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtPassword, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lbPassword, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.lbEmail, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.deparmentCombobox, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.txtPhone, 1, 7);
@@ -98,6 +98,26 @@ namespace MyStoreWinApp
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(674, 409);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // roleCombobox
+            // 
+            this.roleCombobox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.roleCombobox.FormattingEnabled = true;
+            this.roleCombobox.Location = new System.Drawing.Point(246, 182);
+            this.roleCombobox.Name = "roleCombobox";
+            this.roleCombobox.Size = new System.Drawing.Size(329, 28);
+            this.roleCombobox.TabIndex = 18;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(3, 375);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 20);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Deparment Id";
             // 
             // label1
             // 
@@ -120,17 +140,6 @@ namespace MyStoreWinApp
             this.txtEmployeeId.Size = new System.Drawing.Size(324, 27);
             this.txtEmployeeId.TabIndex = 5;
             // 
-            // lbName
-            // 
-            this.lbName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbName.Location = new System.Drawing.Point(3, 45);
-            this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(119, 20);
-            this.lbName.TabIndex = 2;
-            this.lbName.Text = "Employee Name";
-            // 
             // txtEmployeeName
             // 
             this.txtEmployeeName.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -138,17 +147,6 @@ namespace MyStoreWinApp
             this.txtEmployeeName.Name = "txtEmployeeName";
             this.txtEmployeeName.Size = new System.Drawing.Size(324, 27);
             this.txtEmployeeName.TabIndex = 7;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPassword.AutoSize = true;
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPassword.Location = new System.Drawing.Point(3, 135);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(73, 20);
-            this.txtPassword.TabIndex = 10;
-            this.txtPassword.Text = "Password:";
             // 
             // txtEmail
             // 
@@ -158,17 +156,6 @@ namespace MyStoreWinApp
             this.txtEmail.Size = new System.Drawing.Size(324, 27);
             this.txtEmail.TabIndex = 11;
             this.txtEmail.TabStop = false;
-            // 
-            // lbCountry
-            // 
-            this.lbCountry.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbCountry.AutoSize = true;
-            this.lbCountry.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbCountry.Location = new System.Drawing.Point(3, 240);
-            this.lbCountry.Name = "lbCountry";
-            this.lbCountry.Size = new System.Drawing.Size(72, 20);
-            this.lbCountry.TabIndex = 1;
-            this.lbCountry.Text = "BirthDate";
             // 
             // label4
             // 
@@ -181,6 +168,77 @@ namespace MyStoreWinApp
             this.label4.TabIndex = 3;
             this.label4.Text = "Role";
             // 
+            // txtPassword
+            // 
+            this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPassword.Location = new System.Drawing.Point(249, 131);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(324, 27);
+            this.txtPassword.TabIndex = 9;
+            // 
+            // lbCountry
+            // 
+            this.lbCountry.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbCountry.AutoSize = true;
+            this.lbCountry.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbCountry.Location = new System.Drawing.Point(3, 240);
+            this.lbCountry.Name = "lbCountry";
+            this.lbCountry.Size = new System.Drawing.Size(72, 20);
+            this.lbCountry.TabIndex = 1;
+            this.lbCountry.Text = "BirthDate";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(3, 292);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 20);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Address";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(3, 334);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 20);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Phone";
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtAddress.Location = new System.Drawing.Point(249, 288);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(324, 27);
+            this.txtAddress.TabIndex = 15;
+            // 
+            // lbName
+            // 
+            this.lbName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbName.AutoSize = true;
+            this.lbName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbName.Location = new System.Drawing.Point(3, 45);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(119, 20);
+            this.lbName.TabIndex = 2;
+            this.lbName.Text = "Employee Name";
+            // 
+            // lbPassword
+            // 
+            this.lbPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbPassword.Location = new System.Drawing.Point(3, 135);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(73, 20);
+            this.lbPassword.TabIndex = 10;
+            this.lbPassword.Text = "Password:";
+            // 
             // lbEmail
             // 
             this.lbEmail.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -192,13 +250,33 @@ namespace MyStoreWinApp
             this.lbEmail.TabIndex = 4;
             this.lbEmail.Text = "Email: ";
             // 
-            // txtMemPassword
+            // deparmentCombobox
             // 
-            this.txtMemPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMemPassword.Location = new System.Drawing.Point(249, 131);
-            this.txtMemPassword.Name = "txtMemPassword";
-            this.txtMemPassword.Size = new System.Drawing.Size(324, 27);
-            this.txtMemPassword.TabIndex = 9;
+            this.deparmentCombobox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.deparmentCombobox.FormattingEnabled = true;
+            this.deparmentCombobox.Location = new System.Drawing.Point(246, 371);
+            this.deparmentCombobox.Name = "deparmentCombobox";
+            this.deparmentCombobox.Size = new System.Drawing.Size(329, 28);
+            this.deparmentCombobox.TabIndex = 17;
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPhone.Location = new System.Drawing.Point(248, 330);
+            this.txtPhone.Mask = "0000000000";
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(326, 27);
+            this.txtPhone.TabIndex = 20;
+            this.txtPhone.ValidatingType = typeof(int);
+            // 
+            // dtpBirthDate
+            // 
+            this.dtpBirthDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpBirthDate.Location = new System.Drawing.Point(253, 237);
+            this.dtpBirthDate.Name = "dtpBirthDate";
+            this.dtpBirthDate.Size = new System.Drawing.Size(316, 27);
+            this.dtpBirthDate.TabIndex = 21;
             // 
             // tableLayoutPanel2
             // 
@@ -207,7 +285,7 @@ namespace MyStoreWinApp
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.22727F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.77273F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
             this.tableLayoutPanel2.Controls.Add(this.txtTiltle, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(47, 12);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -266,84 +344,6 @@ namespace MyStoreWinApp
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(3, 292);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 20);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Address";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(3, 334);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 20);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Phone";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(3, 375);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 20);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Deparment Id";
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAddress.Location = new System.Drawing.Point(249, 288);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(324, 27);
-            this.txtAddress.TabIndex = 15;
-            // 
-            // deparmentCombobox
-            // 
-            this.deparmentCombobox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.deparmentCombobox.FormattingEnabled = true;
-            this.deparmentCombobox.Location = new System.Drawing.Point(246, 371);
-            this.deparmentCombobox.Name = "deparmentCombobox";
-            this.deparmentCombobox.Size = new System.Drawing.Size(329, 28);
-            this.deparmentCombobox.TabIndex = 17;
-            // 
-            // roleCombobox
-            // 
-            this.roleCombobox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.roleCombobox.FormattingEnabled = true;
-            this.roleCombobox.Location = new System.Drawing.Point(246, 182);
-            this.roleCombobox.Name = "roleCombobox";
-            this.roleCombobox.Size = new System.Drawing.Size(329, 28);
-            this.roleCombobox.TabIndex = 18;
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPhone.Location = new System.Drawing.Point(248, 330);
-            this.txtPhone.Mask = "0000000000";
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(326, 27);
-            this.txtPhone.TabIndex = 20;
-            this.txtPhone.ValidatingType = typeof(int);
-            // 
-            // dtpBirthDate
-            // 
-            this.dtpBirthDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBirthDate.Location = new System.Drawing.Point(253, 237);
-            this.dtpBirthDate.Name = "dtpBirthDate";
-            this.dtpBirthDate.Size = new System.Drawing.Size(316, 27);
-            this.dtpBirthDate.TabIndex = 21;
-            // 
             // frmManagerDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -368,7 +368,7 @@ namespace MyStoreWinApp
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox txtMemPassword;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtEmployeeName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbCountry;
@@ -381,7 +381,7 @@ namespace MyStoreWinApp
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Label txtPassword;
+        private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;

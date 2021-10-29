@@ -24,5 +24,16 @@ namespace DataAccess
                     .SingleOrDefault(role => role.RoleName == roleName);
             }
         }
+
+        public string getRoleNameByRoleId(string roleId)
+        {
+            using (_databaseContext = new EManagerPRNContext())
+            {
+                string roleName = _databaseContext.Roles
+                    .Where(role => role.RoleId == roleId)
+                    .Select(role => role.RoleName).SingleOrDefault();
+                return roleName;
+            }
+        }
     }
 }

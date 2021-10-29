@@ -12,5 +12,7 @@ namespace DataAccess.Repository
         List<Role> GetRoles();
 
         Role GetRoleIdByRoleName(string roleName);
+
+        string GetRoleNameByRoleId(string roleId);
     }
 }

@@ -54,7 +54,10 @@ namespace EmployeeManagementApp
                 employeeInfomation = updateEmployee
             };
             frmManagerDetail.Show();
-
+            frmManagerDetail.Closed += (sender, e) =>
+            {
+                loadManagerList();
+            };
         }
 
         private string getSelectedEmployeeId()
@@ -85,5 +88,17 @@ namespace EmployeeManagementApp
         }
 
 
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            frmManagerDetail frmManagerDetail = new frmManagerDetail()
+            {
+                isUpdate = false,
+            };
+            frmManagerDetail.Show();
+            frmManagerDetail.Closed += (sender, e) =>
+            {
+                loadManagerList();
+            };
+        }
     }
 }

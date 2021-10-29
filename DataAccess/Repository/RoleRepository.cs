@@ -21,5 +21,8 @@ namespace DataAccess.Repository
 
         public Role GetRoleIdByRoleName(string roleName)
             => roleDao.GetRoleIdByRoleName(roleName);
+
+        public string GetRoleNameByRoleId(string roleId)
+            => roleDao.getRoleNameByRoleId(roleId);
     }
 }

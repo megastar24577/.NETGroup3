@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BusinessLayer.Models;
 using DataAccess.Repository;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using MyStoreWinApp;
 
 namespace EmployeeManagementApp
 {
@@ -46,6 +47,14 @@ namespace EmployeeManagementApp
         private void grvMemberList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string employeeId = getSelectedEmployeeId();
+            Employee updateEmployee = employeeRepository.GetEmployeeById(employeeId);
+            frmManagerDetail frmManagerDetail = new frmManagerDetail()
+            {
+                isUpdate = true,
+                employeeInfomation = updateEmployee
+            };
+            frmManagerDetail.Show();
+
         }
 
         private string getSelectedEmployeeId()
@@ -53,7 +62,7 @@ namespace EmployeeManagementApp
             //Get Id in gridview
             int index = grvMemberList.CurrentCell.RowIndex;
             string emId = grvMemberList.Rows[index].Cells[0].Value.ToString();
-            return emId;
+            return emId; 
         }
 
         private void loadManagerList()

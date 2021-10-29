@@ -16,7 +16,7 @@ namespace DataAccess
         {
             using (_databaseContext = new EManagerPRNContext())
             {
-                return _databaseContext.Employees.ToList();
+                return _databaseContext.Employees.Include(e => e.Salaries).ToList();
             }
         }
 

@@ -37,13 +37,13 @@ namespace MyStoreWinApp
             this.txtEmployeeName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtMemPassword = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.lbCountry = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.lbName = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.Label();
+            this.lbPassword = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
             this.deparmentCombobox = new System.Windows.Forms.ComboBox();
             this.txtPhone = new System.Windows.Forms.MaskedTextBox();
@@ -73,13 +73,13 @@ namespace MyStoreWinApp
             this.tableLayoutPanel1.Controls.Add(this.txtEmployeeName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtEmail, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txtMemPassword, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtPassword, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lbCountry, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.txtAddress, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.lbName, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtPassword, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lbPassword, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.lbEmail, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.deparmentCombobox, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.txtPhone, 1, 7);
@@ -167,14 +167,14 @@ namespace MyStoreWinApp
             this.label4.Size = new System.Drawing.Size(39, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Role";
+            //
+            // txtPassword
             // 
-            // txtMemPassword
-            // 
-            this.txtMemPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMemPassword.Location = new System.Drawing.Point(249, 131);
-            this.txtMemPassword.Name = "txtMemPassword";
-            this.txtMemPassword.Size = new System.Drawing.Size(324, 27);
-            this.txtMemPassword.TabIndex = 9;
+            this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPassword.Location = new System.Drawing.Point(249, 131);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(324, 27);
+            this.txtPassword.TabIndex = 9;
             // 
             // lbCountry
             // 
@@ -228,16 +228,16 @@ namespace MyStoreWinApp
             this.lbName.TabIndex = 2;
             this.lbName.Text = "Employee Name";
             // 
-            // txtPassword
+            // lbPassword
             // 
-            this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPassword.AutoSize = true;
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPassword.Location = new System.Drawing.Point(3, 135);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(73, 20);
-            this.txtPassword.TabIndex = 10;
-            this.txtPassword.Text = "Password:";
+            this.lbPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbPassword.Location = new System.Drawing.Point(3, 135);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(73, 20);
+            this.lbPassword.TabIndex = 10;
+            this.lbPassword.Text = "Password:";
             // 
             // lbEmail
             // 
@@ -285,7 +285,7 @@ namespace MyStoreWinApp
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.22727F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.77273F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 113F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
             this.tableLayoutPanel2.Controls.Add(this.txtTiltle, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(47, 12);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -342,6 +342,7 @@ namespace MyStoreWinApp
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // frmManagerDetail
             // 
@@ -366,7 +367,7 @@ namespace MyStoreWinApp
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox txtMemPassword;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtEmployeeName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbCountry;
@@ -379,7 +380,7 @@ namespace MyStoreWinApp
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Label txtPassword;
+        private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;

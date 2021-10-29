@@ -52,7 +52,10 @@ namespace EmployeeManagementApp
                 employeeInfomation = updateEmployee
             };
             frmManagerDetail.Show();
-
+            frmManagerDetail.Closed += (sender, e) =>
+            {
+                loadManagerList();
+            };
         }
 
         private string getSelectedEmployeeId()
@@ -81,6 +84,7 @@ namespace EmployeeManagementApp
                 loadManagerList();
             }
         }
+
 
 
         //---------------------------------------------------------------------------------------------
@@ -183,6 +187,19 @@ namespace EmployeeManagementApp
         private void frmAdminControl_Load(object sender, EventArgs e)
         {
             dgvDepartment.CellDoubleClick += dgvDepartment_CellContentClick;
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            frmManagerDetail frmManagerDetail = new frmManagerDetail()
+            {
+                isUpdate = false,
+            };
+            frmManagerDetail.Show();
+            frmManagerDetail.Closed += (sender, e) =>
+            {
+                loadManagerList();
+            };
         }
     }
 }

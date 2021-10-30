@@ -53,6 +53,23 @@ namespace MyStoreWinApp
                     this.Hide();
                     menuForm.Show();
                 }
+                else
+                {
+                    var currentUser = employeeRepository.CheckLogin(email, password);
+                    if (currentUser is null)
+                    {
+                        MessageBox.Show("Email or password is incorrect!");
+                    }
+                    else
+                    {
+                        frmMenu menuForm = frmMenu.Instance;
+                        menuForm.IsAdmin = false;
+                        menuForm.CurrentMember = currentUser;
+                        menuForm.Closed += (sender, e) => this.Close();
+                        this.Hide();
+                        menuForm.Show();
+                    }
+                }
             }
         }
 

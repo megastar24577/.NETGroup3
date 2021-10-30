@@ -20,5 +20,7 @@ namespace DataAccess.Repository
         void DeleteEmployee(Employee deleteEmployee);
 
         void AddEmployee(Employee newEmployee);
+
+        Employee CheckLogin(string email, string password);
     }
 }

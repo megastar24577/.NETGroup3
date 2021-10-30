@@ -8,12 +8,15 @@ namespace MyStoreWinApp
 {
     public partial class frmManagerDetail : Form
     {
+        //Test thu git
         private RoleRepository roleRepository;
 
         private EmployeeRepository employeeRepository;
 
         private DeparmentRepository deparmentRepository;
         public bool isUpdate { get; set; }
+
+        public bool isMember { get; set; } = false;
 
         public Employee employeeInfomation { get; set; }
 
@@ -28,6 +31,8 @@ namespace MyStoreWinApp
 
         private void FrmMemberDetail_Load(object sender, EventArgs e)
         {
+            roleCombobox.Enabled = !isMember;
+            deparmentCombobox.Enabled = !isMember;
             //Add all role to combo box
             List<Role> listOfRoles = roleRepository.GetRoles();
             foreach (var role in listOfRoles)
@@ -69,6 +74,12 @@ namespace MyStoreWinApp
         private void btnSave_Click(object sender, EventArgs e)
         {
             Role selectedRole = roleRepository.GetRoleIdByRoleName(roleCombobox.Text);
+            //Check if department id not selected anything then convert it to null
+            string departmentId = deparmentCombobox.Text;
+            if (string.IsNullOrEmpty(departmentId))
+            {
+                departmentId = null;
+            }
             Employee newEmployee = new Employee()
             {
                 //Convert Role name to roleId
@@ -81,7 +92,7 @@ namespace MyStoreWinApp
                 Phone = txtPhone.Text,
                 Address = txtAddress.Text,
                 RoleId = selectedRole.RoleId,
-                DepartmentId = deparmentCombobox.Text,
+                DepartmentId = departmentId,
             };
 
             if (isUpdate)

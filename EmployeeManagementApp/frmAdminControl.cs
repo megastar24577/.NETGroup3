@@ -221,5 +221,27 @@ namespace EmployeeManagementApp
         {
             dgvDepartment.CellDoubleClick += dgvDepartment_CellContentClick;
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            frmManagerDetail frmManagerDetail = new frmManagerDetail()
+            {
+                isUpdate = false,
+            };
+            frmManagerDetail.Show();
+            frmManagerDetail.Closed += (sender, e) =>
+            {
+                loadManagerList();
+            };
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchValue = txtSearchManagerWithId.Text;
+            Employee searchedEmployee = employeeRepository.GetEmployeeById(searchValue);
+            List<Employee> searchList = new List<Employee>();
+            searchList.Add(searchedEmployee);
+            grvMemberList.DataSource = searchList;
+        }
     }
 }

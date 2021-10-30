@@ -49,7 +49,7 @@ namespace EmployeeManagementApp
             this.txtSearchDepartment = new System.Windows.Forms.TextBox();
             this.btnSearchDepartment = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtSearchByID = new System.Windows.Forms.MaskedTextBox();
+            this.txtSearchManagerWithId = new System.Windows.Forms.TextBox();
             this.lbSearchByID = new System.Windows.Forms.Label();
             this.lbFilterByName = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -192,7 +192,7 @@ namespace EmployeeManagementApp
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.64151F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.35849F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
             this.tableLayoutPanel1.Controls.Add(this.btnNewDepartment, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnDepartmentDelete, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnLoadDepartment, 1, 0);
@@ -208,7 +208,7 @@ namespace EmployeeManagementApp
             this.btnNewDepartment.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnNewDepartment.Location = new System.Drawing.Point(3, 3);
             this.btnNewDepartment.Name = "btnNewDepartment";
-            this.btnNewDepartment.Size = new System.Drawing.Size(76, 26);
+            this.btnNewDepartment.Size = new System.Drawing.Size(72, 26);
             this.btnNewDepartment.TabIndex = 0;
             this.btnNewDepartment.Text = "New";
             this.btnNewDepartment.UseVisualStyleBackColor = true;
@@ -217,7 +217,7 @@ namespace EmployeeManagementApp
             // btnDepartmentDelete
             // 
             this.btnDepartmentDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDepartmentDelete.Location = new System.Drawing.Point(186, 3);
+            this.btnDepartmentDelete.Location = new System.Drawing.Point(182, 3);
             this.btnDepartmentDelete.Name = "btnDepartmentDelete";
             this.btnDepartmentDelete.Size = new System.Drawing.Size(88, 26);
             this.btnDepartmentDelete.TabIndex = 2;
@@ -228,9 +228,9 @@ namespace EmployeeManagementApp
             // btnLoadDepartment
             // 
             this.btnLoadDepartment.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLoadDepartment.Location = new System.Drawing.Point(85, 3);
+            this.btnLoadDepartment.Location = new System.Drawing.Point(81, 3);
             this.btnLoadDepartment.Name = "btnLoadDepartment";
-            this.btnLoadDepartment.Size = new System.Drawing.Size(85, 26);
+            this.btnLoadDepartment.Size = new System.Drawing.Size(80, 26);
             this.btnLoadDepartment.TabIndex = 1;
             this.btnLoadDepartment.Text = "Load";
             this.btnLoadDepartment.UseVisualStyleBackColor = true;
@@ -281,7 +281,7 @@ namespace EmployeeManagementApp
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.txtSearchByID);
+            this.panel2.Controls.Add(this.txtSearchManagerWithId);
             this.panel2.Controls.Add(this.lbSearchByID);
             this.panel2.Controls.Add(this.lbFilterByName);
             this.panel2.Controls.Add(this.btnDelete);
@@ -295,14 +295,12 @@ namespace EmployeeManagementApp
             this.panel2.Size = new System.Drawing.Size(701, 518);
             this.panel2.TabIndex = 11;
             // 
-            // txtSearchByID
+            // txtSearchManagerWithId
             // 
-            this.txtSearchByID.Location = new System.Drawing.Point(449, 90);
-            this.txtSearchByID.Mask = "00000";
-            this.txtSearchByID.Name = "txtSearchByID";
-            this.txtSearchByID.Size = new System.Drawing.Size(146, 27);
-            this.txtSearchByID.TabIndex = 9;
-            this.txtSearchByID.ValidatingType = typeof(int);
+            this.txtSearchManagerWithId.Location = new System.Drawing.Point(449, 91);
+            this.txtSearchManagerWithId.Name = "txtSearchManagerWithId";
+            this.txtSearchManagerWithId.Size = new System.Drawing.Size(139, 27);
+            this.txtSearchManagerWithId.TabIndex = 9;
             // 
             // lbSearchByID
             // 
@@ -347,6 +345,7 @@ namespace EmployeeManagementApp
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnLoad
             // 
@@ -429,7 +428,6 @@ namespace EmployeeManagementApp
         private System.Windows.Forms.TextBox txtSearchDepartment;
         private System.Windows.Forms.Button btnSearchDepartment;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.MaskedTextBox txtSearchByID;
         private System.Windows.Forms.Label lbSearchByID;
         private System.Windows.Forms.Label lbFilterByName;
         private System.Windows.Forms.Button btnDelete;
@@ -441,5 +439,6 @@ namespace EmployeeManagementApp
         private System.Windows.Forms.Label lbManagerId;
         private System.Windows.Forms.TextBox txtDeparmentManagerId;
         private System.Windows.Forms.Button btnDepartmentDelete;
+        private System.Windows.Forms.TextBox txtSearchManagerWithId;
     }
 }

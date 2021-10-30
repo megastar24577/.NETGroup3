@@ -10,15 +10,27 @@ using System.Windows.Forms;
 
 namespace EmployeeManagementApp
 {
-    public partial class frmManager : Form
+    public partial class frmManager : UserControl
     {
+        //Singleton
+        private static frmManager _instance;
+
+        public static frmManager Instance
+        {
+            get
+            {
+                if (_instance is null)
+                {
+                    _instance = new frmManager();
+                }
+
+                return _instance;
+            }
+        }
+
         public frmManager()
         {
             InitializeComponent();
         }
-
-        private void txtPhone_TextChanged(object sender, EventArgs e)
-        {
-                    }
     }
 }

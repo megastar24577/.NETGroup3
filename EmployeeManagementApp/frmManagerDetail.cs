@@ -8,6 +8,7 @@ namespace MyStoreWinApp
 {
     public partial class frmManagerDetail : Form
     {
+        //Test thu git
         private RoleRepository roleRepository;
 
         private EmployeeRepository employeeRepository;

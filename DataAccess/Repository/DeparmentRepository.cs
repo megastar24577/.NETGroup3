@@ -27,5 +27,8 @@ namespace DataAccess.Repository
 
         public void AddDepartment(Department newDepartment)
             => departmentDao.CreateDepartment(newDepartment);
+
+        public Department SearchDepartmentByDepartmentId(string departmentId)
+            => departmentDao.SearchDepartmentByDepartmentId(departmentId);
     }
 }

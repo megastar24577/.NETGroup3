@@ -277,6 +277,7 @@ namespace EmployeeManagementApp
             this.btnSearchDepartment.TabIndex = 1;
             this.btnSearchDepartment.Text = "Search";
             this.btnSearchDepartment.UseVisualStyleBackColor = true;
+            this.btnSearchDepartment.Click += new System.EventHandler(this.btnSearchDepartment_Click);
             // 
             // panel2
             // 

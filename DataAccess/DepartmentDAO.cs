@@ -52,5 +52,16 @@ namespace DataAccess
                 _databaseContext.SaveChanges();
             }
         }
+
+        public Department SearchDepartmentByDepartmentId(string departmentId)
+        {
+            using (_databaseContext = new EManagerPRNContext())
+            {
+              return _databaseContext.Departments
+                    .Where(department => department.DepartmentId == departmentId)
+                    .FirstOrDefault<Department>();
+            }
+        }
+
     }
 }

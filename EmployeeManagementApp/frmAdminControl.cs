@@ -85,10 +85,23 @@ namespace EmployeeManagementApp
             }
         }
 
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            frmManagerDetail frmManagerDetail = new frmManagerDetail()
+            {
+                isUpdate = false,
+            };
+            frmManagerDetail.Show();
+            frmManagerDetail.Closed += (sender, e) =>
+            {
+                loadManagerList();
+            };
+        }
+
 
         //---------------------------------------------------------------------------------------------
 
-
+        //Get only one department
         private Department GetDepartment()
         {
             Department depart = null;
@@ -102,16 +115,24 @@ namespace EmployeeManagementApp
             return depart;
         }
 
-        private void LoadDepartmentList()
+        //Load department base on action (all = load all, department = load one department)
+        private void LoadDepartmentList(string action)
         {
-            IEnumerable<Department> departments = null;
-            departments = departmentRepository.GetAllDepartments();
+            source = new BindingSource();
+            if (action == "all")
+            {
+                IEnumerable<Department> departments = null;
+                departments = departmentRepository.GetAllDepartments();
+                source.DataSource = departments;
+            }
+            else if(action == "department")
+            {
+                Department department = departmentRepository.SearchDepartmentByDepartmentId(txtSearchDepartment.Text.ToUpper());
+                source.DataSource = department;
+            }
 
             try
-            {
-                source = new BindingSource();
-                source.DataSource = departments;
-
+            { 
                 txtDepartmentID.DataBindings.Clear();
                 txtDepartmentName.DataBindings.Clear();
                 txtDeparmentManagerId.DataBindings.Clear();
@@ -125,6 +146,7 @@ namespace EmployeeManagementApp
 
                 dgvDepartment.DataSource = null;
                 dgvDepartment.DataSource = source;
+                dgvDepartment.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvDepartment.Columns[4].Visible = false;
                 dgvDepartment.Columns[5].Visible = false;
             }
@@ -132,13 +154,17 @@ namespace EmployeeManagementApp
             {
                 MessageBox.Show(ex.Message, "Load department list");
             }
+
+
         }
 
+        //button load department
         private void btnLoadDepartment_Click(object sender, EventArgs e)
         {
-            LoadDepartmentList();
+            LoadDepartmentList("all");
         }
 
+        //button new department
         private void btnNewDepartment_Click(object sender, EventArgs e)
         {
             frmDepartmentDetail frmDepartmentDetail = new frmDepartmentDetail
@@ -149,11 +175,18 @@ namespace EmployeeManagementApp
             };
             if(frmDepartmentDetail.ShowDialog() == DialogResult.OK)
             {
-                LoadDepartmentList();
+                LoadDepartmentList("all");
                 source.Position = source.Count - 1;
             }
         }
+        
+        //button search department
+        private void btnSearchDepartment_Click(object sender, EventArgs e)
+        {
+            LoadDepartmentList("department");
+        }
 
+        //Click to data grid view to update department
         private void dgvDepartment_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             frmDepartmentDetail frmDepartmentDetail = new frmDepartmentDetail
@@ -165,19 +198,20 @@ namespace EmployeeManagementApp
             };
             if(frmDepartmentDetail.ShowDialog() == DialogResult.OK)
             {
-                LoadDepartmentList();
+                LoadDepartmentList("all");
                 source.Position = source.Count - 1;
             }
 
         }
 
+        //Delete department button
         private void btnDepartmentDelete_Click(object sender, EventArgs e)
         {
             try
             {
                 Department depart = GetDepartment();
                 departmentRepository.DeleteDepartment(depart);
-                LoadDepartmentList();
+                LoadDepartmentList("all");
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message, "Delete Department");
             }

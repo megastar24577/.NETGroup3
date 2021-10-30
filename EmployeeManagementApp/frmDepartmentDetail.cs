@@ -43,8 +43,8 @@ namespace EmployeeManagementApp
                 }
                 var Department = new Department
                 {
-                    DepartmentId = txtDepartmentID.Text,
-                    DepartmentName = txtDepartmentName.Text,
+                    DepartmentId = txtDepartmentID.Text.ToUpper(),
+                    DepartmentName = txtDepartmentName.Text.ToUpper(),
                     ManagerId = managerIdCheck,
                     BaseSalary = short.Parse(txtDepartmentBaseSalary.Text),
                 };

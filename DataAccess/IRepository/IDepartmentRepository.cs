@@ -18,5 +18,7 @@ namespace DataAccess.Repository
         void DeleteDepartment(Department deleteDepartment);
 
         void AddDepartment(Department newDepartment);
+
+        Department SearchDepartmentByDepartmentId(string departmentId);
     }
 }

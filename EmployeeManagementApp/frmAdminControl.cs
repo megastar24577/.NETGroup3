@@ -200,5 +200,14 @@ namespace EmployeeManagementApp
                 loadManagerList();
             };
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchValue = txtSearchManagerWithId.Text;
+            Employee searchedEmployee = employeeRepository.GetEmployeeById(searchValue);
+            List<Employee> searchList = new List<Employee>();
+            searchList.Add(searchedEmployee);
+            grvMemberList.DataSource = searchList;
+        }
     }
 }

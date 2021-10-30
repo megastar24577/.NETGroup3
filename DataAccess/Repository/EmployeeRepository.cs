@@ -33,5 +33,8 @@ namespace DataAccess.Repository
 
         public void AddEmployee(Employee newEmployee)
             => employeeDao.AddEmployee(newEmployee);
+
+        public Employee CheckLogin(string email, string password)
+            => employeeDao.CheckLogin(email, password);
     }
 }

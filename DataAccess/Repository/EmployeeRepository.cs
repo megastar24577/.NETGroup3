@@ -22,6 +22,9 @@ namespace DataAccess.Repository
         public List<Employee> GetAllManager(string roleId)
             => employeeDao.GetManager(roleId);
 
+        public List<Employee> GetEmployeeOfDepartment(string departmentId)
+            => employeeDao.GetEmployeeOfDepartment(departmentId);
+
         public Employee GetEmployeeById(string employeeId)
             => employeeDao.GetEmployeeById(employeeId);
 

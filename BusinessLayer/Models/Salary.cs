@@ -12,6 +12,6 @@ namespace BusinessLayer.Models
         public DateTime SalaryDate { get; set; }
         public int WorkHour { get; set; }
 
-        public virtual Employee Employee { get; set; }
+        public Employee Employee { get; set; }
     }
 }

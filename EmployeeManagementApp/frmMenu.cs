@@ -83,15 +83,17 @@ namespace EmployeeManagementApp
         private void salaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //If the is no frm control then create new else bring it to front
-            if (!panel.Controls.Contains(frmSalary.Instance))
+            if (!panel.Controls.Contains(from.Instance))
             {
-                panel.Controls.Add(frmSalary.Instance);
-                frmSalary.Instance.Dock = DockStyle.Fill;
-                frmSalary.Instance.BringToFront();
+                
+                panel.Controls.Add(from.Instance);
+                from.Instance.Dock = DockStyle.Fill;
+                from.Instance.CurrentUser = CurrentMember;
+                from.Instance.BringToFront();
             }
             else
             {
-                frmSalary.Instance.BringToFront();
+                from.Instance.BringToFront();
             }
         }
 

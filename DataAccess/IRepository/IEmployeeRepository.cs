@@ -13,6 +13,8 @@ namespace DataAccess.Repository
         List<Employee> GetAllEmployees();
 
         List<Employee> GetAllManager(string roleId);
+
+        List<Employee> GetEmployeeOfDepartment(string departmentId);
         Employee GetEmployeeById(string employeeId);
 
         void UpdateEmployee(Employee updateEmployee);

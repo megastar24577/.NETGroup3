@@ -26,6 +26,15 @@ namespace DataAccess
             }
         }
 
+        public List<Employee> GetEmployeeOfDepartment(string departmentId)
+        {
+            using (_databaseContext = new EManagerPRNContext())
+            {
+                return _databaseContext.Employees
+                    .Where(employee => employee.DepartmentId == departmentId).ToList();
+            }
+        }
+
         public Employee GetEmployeeById(string employeeId)
         {
             using (_databaseContext = new EManagerPRNContext())

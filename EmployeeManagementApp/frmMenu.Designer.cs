@@ -80,6 +80,7 @@ namespace EmployeeManagementApp
             this.salaryToolStripMenuItem.Name = "salaryToolStripMenuItem";
             this.salaryToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
             this.salaryToolStripMenuItem.Text = "Salary";
+            this.salaryToolStripMenuItem.Click += new System.EventHandler(this.salaryToolStripMenuItem_Click);
             // 
             // profileToolStripMenuItem
             // 

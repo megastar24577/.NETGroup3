@@ -44,6 +44,7 @@ namespace EmployeeManagementApp
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //If the is no frm control then create new else bring it to front
             if (!panel.Controls.Contains(frmAdminControl.Instance))
             {
                 panel.Controls.Add(frmAdminControl.Instance);
@@ -76,6 +77,21 @@ namespace EmployeeManagementApp
                     employeeInfomation = employeeInf,
                 };
                 frmManagerDetail.Show();
+            }
+        }
+
+        private void salaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //If the is no frm control then create new else bring it to front
+            if (!panel.Controls.Contains(frmSalary.Instance))
+            {
+                panel.Controls.Add(frmSalary.Instance);
+                frmSalary.Instance.Dock = DockStyle.Fill;
+                frmSalary.Instance.BringToFront();
+            }
+            else
+            {
+                frmSalary.Instance.BringToFront();
             }
         }
     }

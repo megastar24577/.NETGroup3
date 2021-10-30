@@ -63,5 +63,14 @@ namespace DataAccess
                 _databaseContext.SaveChanges();
             }
         }
+
+        public Employee CheckLogin(string email, string password)
+        {
+            using (_databaseContext = new EManagerPRNContext())
+            {
+                return _databaseContext.Employees.FirstOrDefault(member =>
+                    member.Email == email && member.Password == password);
+            }
+        }
     }
 }

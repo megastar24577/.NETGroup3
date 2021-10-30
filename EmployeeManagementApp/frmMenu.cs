@@ -94,5 +94,20 @@ namespace EmployeeManagementApp
                 frmSalary.Instance.BringToFront();
             }
         }
+
+        private void managerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //If the is no frm control then create new else bring it to front
+            if (!panel.Controls.Contains(frmManager.Instance))
+            {
+                panel.Controls.Add(frmManager.Instance);
+                frmManager.Instance.Dock = DockStyle.Fill;
+                frmManager.Instance.BringToFront();
+            }
+            else
+            {
+                frmManager.Instance.BringToFront();
+            }
+        }
     }
 }

@@ -19,6 +19,14 @@ namespace DataAccess
             }
         }
 
+        public List<Salary> GetSalariesOfEmployee(string employeeId)
+        {
+            using (_databaseContext = new EManagerPRNContext())
+            {
+                return _databaseContext.Salaries.Where(s => s.EmployeeId == employeeId).ToList();
+            }
+        }
+
         public Salary GetSalaryById(int salaryId)
         {
             using (_databaseContext = new EManagerPRNContext())
@@ -95,14 +103,5 @@ namespace DataAccess
             }
         }
 
-        public void AddSalaryForManagingEmployee()
-        {
-            using (_databaseContext = new EManagerPRNContext())
-            {
-                //Get each user
-
-                //Give them new salary with selected salary date
-            }
-        }
     }
 }

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer.Models;
 using DataAccess.Repository;
@@ -15,33 +8,31 @@ namespace EmployeeManagementApp
 {
     public partial class frmMenu : Form
     {
-        private IEmployeeRepository employeeRepository;
+        //Singleton
+        private static frmMenu _instance;
+        private readonly IEmployeeRepository employeeRepository;
+        private IRoleRepository roleRepository;
+
+        public frmMenu()
+        {
+            InitializeComponent();
+            employeeRepository = new EmployeeRepository();
+            roleRepository = new RoleRepository();
+        }
 
         public Employee CurrentMember { get; set; }
 
 
         public bool IsAdmin { get; set; }
 
-
-        //Singleton
-        private static frmMenu _instance;
-
         public static frmMenu Instance
         {
             get
             {
-                if (_instance is null)
-                {
-                    _instance = new frmMenu();
-                }
+                if (_instance is null) _instance = new frmMenu();
 
                 return _instance;
             }
-        }
-        public frmMenu()
-        {
-            InitializeComponent();
-            employeeRepository = new EmployeeRepository();
         }
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,9 +52,31 @@ namespace EmployeeManagementApp
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
+            Role memberRole = roleRepository.GetRoleIdByRoleName("Member");
+            //If logged in user not admin then invisible admin tool strip
             if (IsAdmin == false)
             {
                 adminToolStripMenuItem.Visible = false;
+                //If logged in user is member then invisible manager and salary tool strip
+
+                if (CurrentMember.RoleId == memberRole.RoleId)
+                {
+                    managerToolStripMenuItem.Visible = false;
+                    salaryToolStripMenuItem.Visible = false;
+                }
+                else
+                {
+                    ownSalaryToolStripMenuItem.Visible = false;
+                }
+            }
+            else
+            {
+                //If admin only show admin tool strip
+
+                managerToolStripMenuItem.Visible = false;
+                salaryToolStripMenuItem.Visible = false;
+                profileToolStripMenuItem.Visible = false;
+                ownSalaryToolStripMenuItem.Visible = false;
             }
         }
 
@@ -71,12 +84,12 @@ namespace EmployeeManagementApp
         {
             if (!IsAdmin)
             {
-                Employee employeeInf = employeeRepository.GetEmployeeById(CurrentMember.EmployeeId);
-                frmManagerDetail frmManagerDetail = new frmManagerDetail()
+                var employeeInf = employeeRepository.GetEmployeeById(CurrentMember.EmployeeId);
+                var frmManagerDetail = new frmManagerDetail
                 {
                     isUpdate = true,
                     isMember = true,
-                    employeeInfomation = employeeInf,
+                    employeeInfomation = employeeInf
                 };
                 frmManagerDetail.Show();
             }
@@ -87,7 +100,6 @@ namespace EmployeeManagementApp
             //If the is no frm control then create new else bring it to front
             if (!panel.Controls.Contains(from.Instance))
             {
-                
                 panel.Controls.Add(from.Instance);
                 from.Instance.Dock = DockStyle.Fill;
                 from.Instance.CurrentUser = CurrentMember;
@@ -106,12 +118,22 @@ namespace EmployeeManagementApp
             {
                 panel.Controls.Add(frmManager.Instance);
                 frmManager.Instance.Dock = DockStyle.Fill;
+                frmManager.Instance.CurrentUser = CurrentMember;
                 frmManager.Instance.BringToFront();
             }
             else
             {
                 frmManager.Instance.BringToFront();
             }
+        }
+
+        private void ownSalaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmOwnSalary = new OwnSalary
+            {
+                CurrentEmployee = CurrentMember
+            };
+            frmOwnSalary.Show();
         }
     }
 }

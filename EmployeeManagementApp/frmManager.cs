@@ -15,10 +15,13 @@ namespace EmployeeManagementApp
 {
     public partial class frmManager : UserControl
     {
-        private IEmployeeRepository EmployeeRepository = new EmployeeRepository();
+        private IEmployeeRepository employeeRepository;
+        private IDepartmentRepository departmentRepository;
         private IEnumerable<Employee> list;
         private BindingSource source;
+        private string memberRoleId = "R3";
 
+        public Employee CurrentUser { get; set; }
         //Singleton
         private static frmManager _instance;
 
@@ -38,6 +41,8 @@ namespace EmployeeManagementApp
         public frmManager()
         {
             InitializeComponent();
+            employeeRepository = new EmployeeRepository();
+            departmentRepository = new DeparmentRepository();
         }
 
         private void clearText()
@@ -48,14 +53,22 @@ namespace EmployeeManagementApp
             txtAddress.Text = String.Empty;
             txtFullName.Text = String.Empty;
             txtPassword.Text = String.Empty;
-            mtbPhone.Text = String.Empty;
+            txtPhone.Text = String.Empty;
             txtRoleID.Text = String.Empty;
         }
         public void LoadEmployeeList()
         {
-            var employees = EmployeeRepository.GetAllEmployees();
+            
             try
             {
+                Department manaDepart = departmentRepository.GetDepartmentOfManager(CurrentUser.EmployeeId);
+                if (manaDepart == null)
+                {
+                    MessageBox.Show("You are not manage any Depart yet!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                btnDelete.Enabled = true;
+                var employees = employeeRepository.GetEmployeeOfDepartment(manaDepart.DepartmentId);
                 if (list.Count() == 0)
                 {
                     // hien lable list trong 
@@ -78,7 +91,7 @@ namespace EmployeeManagementApp
                 txtDepartmentID.DataBindings.Clear();
                 txtRoleID.DataBindings.Clear();
                 txtAddress.DataBindings.Clear();
-                mtbPhone.DataBindings.Clear();
+                txtPhone.DataBindings.Clear();
 
                 txtEmployeeID.DataBindings.Add("Text", source, "EmployeeId");
                 txtFullName.DataBindings.Add("Text", source, "Fullname");
@@ -105,8 +118,9 @@ namespace EmployeeManagementApp
             txtFullName.ReadOnly = false;
             txtEmployeeID.ReadOnly = false;
             txtPassword.ReadOnly = false;
-            txtDepartmentID.ReadOnly = false;
-            txtRoleID.ReadOnly = false;
+            txtPhone.ReadOnly = false;
+            txtDepartmentID.Visible = false;
+            txtRoleID.Visible = false;
             txtAddress.ReadOnly = false;
             btnCancel.Visible = true;
             btnConfirm.Visible = true;
@@ -119,8 +133,9 @@ namespace EmployeeManagementApp
             txtFullName.ReadOnly = true;
             txtEmployeeID.ReadOnly = true;
             txtPassword.ReadOnly = true;
-            txtDepartmentID.ReadOnly = true;
-            txtRoleID.ReadOnly = true;
+            txtPhone.ReadOnly = true;
+            txtDepartmentID.Visible = true;
+            txtRoleID.Visible = true;
             txtAddress.ReadOnly = true;
             btnCancel.Visible = false;
             btnConfirm.Visible = false;
@@ -134,7 +149,13 @@ namespace EmployeeManagementApp
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            list = EmployeeRepository.GetAllEmployees();
+            Department manaDepart = departmentRepository.GetDepartmentOfManager(CurrentUser.EmployeeId);
+            if (manaDepart == null)
+            {
+                MessageBox.Show("You are not manage any Depart yet!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            list = employeeRepository.GetEmployeeOfDepartment(manaDepart.DepartmentId);
             LoadEmployeeList();
         }
 
@@ -150,9 +171,15 @@ namespace EmployeeManagementApp
         {
             try
             {
-                Employee deleteEmplyee = EmployeeRepository.GetEmployeeById(txtEmployeeID.Text);
-                EmployeeRepository.DeleteEmployee(deleteEmplyee);
-                list = EmployeeRepository.GetAllEmployees();
+                Department manaDepart = departmentRepository.GetDepartmentOfManager(CurrentUser.EmployeeId);
+                if (manaDepart == null)
+                {
+                    MessageBox.Show("You are not manage any Depart yet!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                Employee deleteEmplyee = employeeRepository.GetEmployeeById(txtEmployeeID.Text);
+                employeeRepository.DeleteEmployee(deleteEmplyee);
+                list = employeeRepository.GetEmployeeOfDepartment(manaDepart.DepartmentId);
                 LoadEmployeeList();
 
             }
@@ -162,58 +189,14 @@ namespace EmployeeManagementApp
             }
         }
 
-        private void FilterMember()
-        {
-            Employee employee = new Employee();
-            List<Employee> filterList = EmployeeRepository.GetEmployeesByDepartmentID(cboDepartmentID.Text);
-
-            try
-            {
-
-                if (filterList.Count == 0)
-                {
-                    MessageBox.Show("No member matched", "No result");
-                }
-                else if (filterList.Count != 0)
-                {
-                    source = new BindingSource();
-                    source.DataSource = filterList.OrderByDescending(employee =>  employee.Fullname);
-
-                    txtEmployeeID.DataBindings.Clear();
-                    txtFullName.DataBindings.Clear();
-                    txtPassword.DataBindings.Clear();
-                    txtEmail.DataBindings.Clear();
-                    txtRoleID.DataBindings.Clear();
-                    txtDepartmentID.DataBindings.Clear();
-                    txtAddress.DataBindings.Clear();
-
-                    txtEmployeeID.DataBindings.Add("Text", source, "EmployeeId");
-                    txtFullName.DataBindings.Add("Text", source, "Fullname");
-                    txtEmail.DataBindings.Add("Text", source, "Email");
-                    txtPassword.DataBindings.Add("Text", source, "Password");
-                    txtDepartmentID.DataBindings.Add("Text", source, "DepartmentId");
-                    txtAddress.DataBindings.Add("Text", source, "Address");
-                    txtRoleID.DataBindings.Add("Text", source, "RoleId");
-
-                    dgvManager.DataSource = null;
-                    dgvManager.DataSource = source;
-                }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Load member list");
-            }
-        }
-
             private void LoadOneMember()
         {
             Employee employee = new Employee();
-            var employees = EmployeeRepository.GetAllEmployees();
+            var employees = employeeRepository.GetAllEmployees();
             try
             {
                         List<Employee> list = new List<Employee>();
-                        list.Add(EmployeeRepository.GetEmployeeById(txtEmployeeID.Text));
+                        list.Add(employeeRepository.GetEmployeeById(txtEmployeeID.Text));
                         source = new BindingSource();
                         source.DataSource = list;
 
@@ -256,20 +239,27 @@ namespace EmployeeManagementApp
         {
             try
             {
+                //Get current Manager Department
+                Department manaDepart = departmentRepository.GetDepartmentOfManager(CurrentUser.EmployeeId);
+                if (manaDepart == null)
+                {
+                    MessageBox.Show("You are not manage any Depart yet!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 Employee employee = new Employee()
                 {
                     EmployeeId = txtEmployeeID.Text,
                     Fullname = txtFullName.Text,
                     Password = txtPassword.Text,
-                    BirthDate = DateTime.Parse(dtpBirthday.Text),
-                    RoleId = txtRoleID.Text,
+                    BirthDate = dtpBirthday.Value.Date,
+                    RoleId = memberRoleId,
                     Address = txtAddress.Text,
                     Email = txtEmail.Text,
-                    //Phone = txtPhone_TextChanged.Text,
-                    DepartmentId = txtDepartmentID.Text,
+                    Phone = txtPhone.Text,
+                    DepartmentId = manaDepart.DepartmentId,
                 };
-                EmployeeRepository.AddEmployee(employee);
-                list = EmployeeRepository.GetAllEmployees();
+                employeeRepository.AddEmployee(employee);
+                list = employeeRepository.GetEmployeeOfDepartment(manaDepart.DepartmentId);
                 LoadEmployeeList();
             }
             catch (Exception ex)
@@ -284,6 +274,11 @@ namespace EmployeeManagementApp
         {
             clearText();
             UnEditable();
+        }
+
+        private void frmManager_Load(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = false;
         }
     }
 }

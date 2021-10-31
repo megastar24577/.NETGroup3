@@ -35,6 +35,7 @@ namespace EmployeeManagementApp
             this.managerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ownSalaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +55,8 @@ namespace EmployeeManagementApp
             this.adminToolStripMenuItem,
             this.managerToolStripMenuItem,
             this.salaryToolStripMenuItem,
-            this.profileToolStripMenuItem});
+            this.profileToolStripMenuItem,
+            this.ownSalaryToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
@@ -90,6 +92,13 @@ namespace EmployeeManagementApp
             this.profileToolStripMenuItem.Text = "Profile";
             this.profileToolStripMenuItem.Click += new System.EventHandler(this.profileToolStripMenuItem_Click);
             // 
+            // ownSalaryToolStripMenuItem
+            // 
+            this.ownSalaryToolStripMenuItem.Name = "ownSalaryToolStripMenuItem";
+            this.ownSalaryToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
+            this.ownSalaryToolStripMenuItem.Text = "OwnSalary";
+            this.ownSalaryToolStripMenuItem.Click += new System.EventHandler(this.ownSalaryToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -116,5 +125,6 @@ namespace EmployeeManagementApp
         private System.Windows.Forms.ToolStripMenuItem managerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem profileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ownSalaryToolStripMenuItem;
     }
 }

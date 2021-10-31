@@ -29,15 +29,13 @@ namespace EmployeeManagementApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbFilter = new System.Windows.Forms.Label();
-            this.cboDepartmentID = new System.Windows.Forms.ComboBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvManager = new System.Windows.Forms.DataGridView();
             this.gbEmployeeInfor = new System.Windows.Forms.GroupBox();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.mtbPhone = new System.Windows.Forms.MaskedTextBox();
+            this.txtPhone = new System.Windows.Forms.MaskedTextBox();
             this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
             this.DepartmentID = new System.Windows.Forms.Label();
             this.lbFullName = new System.Windows.Forms.Label();
@@ -61,23 +59,6 @@ namespace EmployeeManagementApp
             ((System.ComponentModel.ISupportInitialize)(this.dgvManager)).BeginInit();
             this.gbEmployeeInfor.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lbFilter
-            // 
-            this.lbFilter.AutoSize = true;
-            this.lbFilter.Location = new System.Drawing.Point(489, 304);
-            this.lbFilter.Name = "lbFilter";
-            this.lbFilter.Size = new System.Drawing.Size(104, 20);
-            this.lbFilter.TabIndex = 36;
-            this.lbFilter.Text = "DepartmentID";
-            // 
-            // cboDepartmentID
-            // 
-            this.cboDepartmentID.FormattingEnabled = true;
-            this.cboDepartmentID.Location = new System.Drawing.Point(489, 327);
-            this.cboDepartmentID.Name = "cboDepartmentID";
-            this.cboDepartmentID.Size = new System.Drawing.Size(186, 28);
-            this.cboDepartmentID.TabIndex = 35;
             // 
             // btnDelete
             // 
@@ -113,7 +94,7 @@ namespace EmployeeManagementApp
             // 
             this.gbEmployeeInfor.Controls.Add(this.btnConfirm);
             this.gbEmployeeInfor.Controls.Add(this.btnCancel);
-            this.gbEmployeeInfor.Controls.Add(this.mtbPhone);
+            this.gbEmployeeInfor.Controls.Add(this.txtPhone);
             this.gbEmployeeInfor.Controls.Add(this.dtpBirthday);
             this.gbEmployeeInfor.Controls.Add(this.DepartmentID);
             this.gbEmployeeInfor.Controls.Add(this.lbFullName);
@@ -160,18 +141,19 @@ namespace EmployeeManagementApp
             this.btnCancel.Visible = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // mtbPhone
+            // txtPhone
             // 
-            this.mtbPhone.Location = new System.Drawing.Point(616, 54);
-            this.mtbPhone.Mask = "0000000000";
-            this.mtbPhone.Name = "mtbPhone";
-            this.mtbPhone.ReadOnly = true;
-            this.mtbPhone.Size = new System.Drawing.Size(222, 27);
-            this.mtbPhone.TabIndex = 24;
-            this.mtbPhone.ValidatingType = typeof(int);
+            this.txtPhone.Location = new System.Drawing.Point(616, 54);
+            this.txtPhone.Mask = "0000000000";
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.ReadOnly = true;
+            this.txtPhone.Size = new System.Drawing.Size(222, 27);
+            this.txtPhone.TabIndex = 24;
+            this.txtPhone.ValidatingType = typeof(int);
             // 
             // dtpBirthday
             // 
+            this.dtpBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpBirthday.Location = new System.Drawing.Point(324, 52);
             this.dtpBirthday.Name = "dtpBirthday";
             this.dtpBirthday.Size = new System.Drawing.Size(221, 27);
@@ -345,8 +327,6 @@ namespace EmployeeManagementApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lbFilter);
-            this.Controls.Add(this.cboDepartmentID);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvManager);
@@ -356,6 +336,7 @@ namespace EmployeeManagementApp
             this.Controls.Add(this.txtSearch);
             this.Name = "frmManager";
             this.Size = new System.Drawing.Size(1300, 650);
+            this.Load += new System.EventHandler(this.frmManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvManager)).EndInit();
             this.gbEmployeeInfor.ResumeLayout(false);
             this.gbEmployeeInfor.PerformLayout();
@@ -365,14 +346,11 @@ namespace EmployeeManagementApp
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lbFilter;
-        private System.Windows.Forms.ComboBox cboDepartmentID;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvManager;
         private System.Windows.Forms.GroupBox gbEmployeeInfor;
-        private System.Windows.Forms.MaskedTextBox mtbPhone;
+        private System.Windows.Forms.MaskedTextBox txtPhone;
         private System.Windows.Forms.DateTimePicker dtpBirthday;
         private System.Windows.Forms.Label DepartmentID;
         private System.Windows.Forms.Label lbFullName;

@@ -24,5 +24,7 @@ namespace DataAccess.Repository
         void AddEmployee(Employee newEmployee);
 
         Employee CheckLogin(string email, string password);
+
+        List<Employee> GetEmployeesByDepartmentID(string DepartmentId);
     }
 }

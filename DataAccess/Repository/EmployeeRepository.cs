@@ -39,5 +39,7 @@ namespace DataAccess.Repository
 
         public Employee CheckLogin(string email, string password)
             => employeeDao.CheckLogin(email, password);
+
+        public List<Employee> GetEmployeesByDepartmentID(string DepartmentId) => employeeDao.GetEmployeesByDepartmentID(DepartmentId);
     }
 }

@@ -30,11 +30,13 @@ namespace EmployeeManagementApp
         private void InitializeComponent()
         {
             this.lbFilter = new System.Windows.Forms.Label();
-            this.comboBoxDepartmentID = new System.Windows.Forms.ComboBox();
+            this.cboDepartmentID = new System.Windows.Forms.ComboBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvManager = new System.Windows.Forms.DataGridView();
             this.gbEmployeeInfor = new System.Windows.Forms.GroupBox();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.mtbPhone = new System.Windows.Forms.MaskedTextBox();
             this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
             this.DepartmentID = new System.Windows.Forms.Label();
@@ -56,7 +58,7 @@ namespace EmployeeManagementApp
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvManager)).BeginInit();
             this.gbEmployeeInfor.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,13 +71,13 @@ namespace EmployeeManagementApp
             this.lbFilter.TabIndex = 36;
             this.lbFilter.Text = "DepartmentID";
             // 
-            // comboBoxDepartmentID
+            // cboDepartmentID
             // 
-            this.comboBoxDepartmentID.FormattingEnabled = true;
-            this.comboBoxDepartmentID.Location = new System.Drawing.Point(489, 327);
-            this.comboBoxDepartmentID.Name = "comboBoxDepartmentID";
-            this.comboBoxDepartmentID.Size = new System.Drawing.Size(186, 28);
-            this.comboBoxDepartmentID.TabIndex = 35;
+            this.cboDepartmentID.FormattingEnabled = true;
+            this.cboDepartmentID.Location = new System.Drawing.Point(489, 327);
+            this.cboDepartmentID.Name = "cboDepartmentID";
+            this.cboDepartmentID.Size = new System.Drawing.Size(186, 28);
+            this.cboDepartmentID.TabIndex = 35;
             // 
             // btnDelete
             // 
@@ -85,6 +87,7 @@ namespace EmployeeManagementApp
             this.btnDelete.TabIndex = 34;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -94,19 +97,22 @@ namespace EmployeeManagementApp
             this.btnAdd.TabIndex = 33;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // dataGridView1
+            // dgvManager
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(153, 375);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(914, 273);
-            this.dataGridView1.TabIndex = 32;
+            this.dgvManager.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvManager.Location = new System.Drawing.Point(153, 375);
+            this.dgvManager.Name = "dgvManager";
+            this.dgvManager.RowHeadersWidth = 51;
+            this.dgvManager.RowTemplate.Height = 29;
+            this.dgvManager.Size = new System.Drawing.Size(914, 273);
+            this.dgvManager.TabIndex = 32;
             // 
             // gbEmployeeInfor
             // 
+            this.gbEmployeeInfor.Controls.Add(this.btnConfirm);
+            this.gbEmployeeInfor.Controls.Add(this.btnCancel);
             this.gbEmployeeInfor.Controls.Add(this.mtbPhone);
             this.gbEmployeeInfor.Controls.Add(this.dtpBirthday);
             this.gbEmployeeInfor.Controls.Add(this.DepartmentID);
@@ -125,19 +131,44 @@ namespace EmployeeManagementApp
             this.gbEmployeeInfor.Controls.Add(this.txtDepartmentID);
             this.gbEmployeeInfor.Controls.Add(this.txtAddress);
             this.gbEmployeeInfor.Controls.Add(this.txtFullName);
-            this.gbEmployeeInfor.Location = new System.Drawing.Point(153, 15);
+            this.gbEmployeeInfor.Location = new System.Drawing.Point(153, 0);
             this.gbEmployeeInfor.Name = "gbEmployeeInfor";
-            this.gbEmployeeInfor.Size = new System.Drawing.Size(893, 282);
+            this.gbEmployeeInfor.Size = new System.Drawing.Size(893, 301);
             this.gbEmployeeInfor.TabIndex = 31;
             this.gbEmployeeInfor.TabStop = false;
             this.gbEmployeeInfor.Text = "Employee\'s Information";
             // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Location = new System.Drawing.Point(684, 266);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(94, 29);
+            this.btnConfirm.TabIndex = 26;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Visible = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(793, 266);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(94, 29);
+            this.btnCancel.TabIndex = 25;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Visible = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // mtbPhone
             // 
             this.mtbPhone.Location = new System.Drawing.Point(616, 54);
+            this.mtbPhone.Mask = "0000000000";
             this.mtbPhone.Name = "mtbPhone";
+            this.mtbPhone.ReadOnly = true;
             this.mtbPhone.Size = new System.Drawing.Size(222, 27);
             this.mtbPhone.TabIndex = 24;
+            this.mtbPhone.ValidatingType = typeof(int);
             // 
             // dtpBirthday
             // 
@@ -231,6 +262,7 @@ namespace EmployeeManagementApp
             // 
             this.txtRoleID.Location = new System.Drawing.Point(324, 136);
             this.txtRoleID.Name = "txtRoleID";
+            this.txtRoleID.ReadOnly = true;
             this.txtRoleID.Size = new System.Drawing.Size(221, 27);
             this.txtRoleID.TabIndex = 12;
             // 
@@ -238,6 +270,7 @@ namespace EmployeeManagementApp
             // 
             this.txtEmployeeID.Location = new System.Drawing.Point(53, 52);
             this.txtEmployeeID.Name = "txtEmployeeID";
+            this.txtEmployeeID.ReadOnly = true;
             this.txtEmployeeID.Size = new System.Drawing.Size(221, 27);
             this.txtEmployeeID.TabIndex = 11;
             // 
@@ -245,6 +278,7 @@ namespace EmployeeManagementApp
             // 
             this.txtPassword.Location = new System.Drawing.Point(53, 227);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.ReadOnly = true;
             this.txtPassword.Size = new System.Drawing.Size(221, 27);
             this.txtPassword.TabIndex = 8;
             // 
@@ -252,6 +286,7 @@ namespace EmployeeManagementApp
             // 
             this.txtEmail.Location = new System.Drawing.Point(617, 136);
             this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(221, 27);
             this.txtEmail.TabIndex = 7;
             // 
@@ -259,6 +294,7 @@ namespace EmployeeManagementApp
             // 
             this.txtDepartmentID.Location = new System.Drawing.Point(616, 227);
             this.txtDepartmentID.Name = "txtDepartmentID";
+            this.txtDepartmentID.ReadOnly = true;
             this.txtDepartmentID.Size = new System.Drawing.Size(221, 27);
             this.txtDepartmentID.TabIndex = 6;
             // 
@@ -266,6 +302,7 @@ namespace EmployeeManagementApp
             // 
             this.txtAddress.Location = new System.Drawing.Point(324, 227);
             this.txtAddress.Name = "txtAddress";
+            this.txtAddress.ReadOnly = true;
             this.txtAddress.Size = new System.Drawing.Size(221, 27);
             this.txtAddress.TabIndex = 5;
             // 
@@ -273,6 +310,7 @@ namespace EmployeeManagementApp
             // 
             this.txtFullName.Location = new System.Drawing.Point(53, 136);
             this.txtFullName.Name = "txtFullName";
+            this.txtFullName.ReadOnly = true;
             this.txtFullName.Size = new System.Drawing.Size(221, 27);
             this.txtFullName.TabIndex = 3;
             // 
@@ -284,6 +322,7 @@ namespace EmployeeManagementApp
             this.btnSearch.TabIndex = 29;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnLoad
             // 
@@ -293,6 +332,7 @@ namespace EmployeeManagementApp
             this.btnLoad.TabIndex = 28;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // txtSearch
             // 
@@ -306,17 +346,17 @@ namespace EmployeeManagementApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lbFilter);
-            this.Controls.Add(this.comboBoxDepartmentID);
+            this.Controls.Add(this.cboDepartmentID);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvManager);
             this.Controls.Add(this.gbEmployeeInfor);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.txtSearch);
             this.Name = "frmManager";
             this.Size = new System.Drawing.Size(1300, 650);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvManager)).EndInit();
             this.gbEmployeeInfor.ResumeLayout(false);
             this.gbEmployeeInfor.PerformLayout();
             this.ResumeLayout(false);
@@ -327,10 +367,10 @@ namespace EmployeeManagementApp
         #endregion
 
         private System.Windows.Forms.Label lbFilter;
-        private System.Windows.Forms.ComboBox comboBoxDepartmentID;
+        private System.Windows.Forms.ComboBox cboDepartmentID;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvManager;
         private System.Windows.Forms.GroupBox gbEmployeeInfor;
         private System.Windows.Forms.MaskedTextBox mtbPhone;
         private System.Windows.Forms.DateTimePicker dtpBirthday;
@@ -353,5 +393,7 @@ namespace EmployeeManagementApp
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

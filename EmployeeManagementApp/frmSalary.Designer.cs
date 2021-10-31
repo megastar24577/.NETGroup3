@@ -30,6 +30,7 @@ namespace EmployeeManagementApp
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txtWorkHours = new System.Windows.Forms.NumericUpDown();
@@ -43,7 +44,6 @@ namespace EmployeeManagementApp
             this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
             this.grvSalary = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtWorkHours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvSalary)).BeginInit();
@@ -69,6 +69,17 @@ namespace EmployeeManagementApp
             this.panel2.Size = new System.Drawing.Size(953, 518);
             this.panel2.TabIndex = 12;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Location = new System.Drawing.Point(238, 90);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(94, 29);
+            this.btnDelete.TabIndex = 18;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -92,6 +103,11 @@ namespace EmployeeManagementApp
             // txtWorkHours
             // 
             this.txtWorkHours.Location = new System.Drawing.Point(3, 37);
+            this.txtWorkHours.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             this.txtWorkHours.Name = "txtWorkHours";
             this.txtWorkHours.Size = new System.Drawing.Size(129, 27);
             this.txtWorkHours.TabIndex = 15;
@@ -196,17 +212,6 @@ namespace EmployeeManagementApp
             this.label3.Size = new System.Drawing.Size(121, 41);
             this.label3.TabIndex = 17;
             this.label3.Text = "SALARY";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Enabled = false;
-            this.btnDelete.Location = new System.Drawing.Point(238, 90);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(94, 29);
-            this.btnDelete.TabIndex = 18;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // from
             // 

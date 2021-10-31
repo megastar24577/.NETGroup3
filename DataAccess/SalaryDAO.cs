@@ -27,12 +27,12 @@ namespace DataAccess
             }
         }
 
-        public Salary GetSalaryByEmployeeId(string employeeId)
+        public Salary GetSalaryByEmployeeIdAndDate(string employeeId ,DateTime date)
         {
             using (_databaseContext = new EManagerPRNContext())
             {
                 return _databaseContext.Salaries
-                    .FirstOrDefault(salary => salary.EmployeeId == employeeId);
+                    .FirstOrDefault(salary => salary.EmployeeId == employeeId && salary.SalaryDate == date);
             }
         }
 
@@ -90,7 +90,7 @@ namespace DataAccess
                             WorkHours = salary.WorkHour,
                             DepartmentId = employee.DepartmentId,
                         }
-                    ).Where(s => s.SalaryDate > fromDate && s.SalaryDate < toDate && s.DepartmentId == departId ).ToList();
+                    ).Where(s => s.SalaryDate >= fromDate && s.SalaryDate <= toDate && s.DepartmentId == departId ).ToList();
                 return data;
             }
         }

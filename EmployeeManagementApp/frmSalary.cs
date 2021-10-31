@@ -49,8 +49,19 @@ namespace EmployeeManagementApp
             return int.Parse(id);
         }
 
+
         private void grvSalary_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            var index = grvSalary.CurrentCell.RowIndex;
+            var employeeId = grvSalary.Rows[index].Cells[1].Value.ToString();
+            var selectedDate = grvSalary.Rows[index].Cells[3].Value.ToString();
+            var selectedEmployee = employeeRepository.GetEmployeeById(employeeId);
+            SalaryFax salaryFax = new SalaryFax()
+            {
+                CurrentEmployee = selectedEmployee,
+                CurrentDateTime = DateTime.Parse(selectedDate),
+            };
+            salaryFax.Show();
         }
 
         private void btnFilterSalary_Click(object sender, EventArgs e)

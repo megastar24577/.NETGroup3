@@ -192,7 +192,7 @@ namespace EmployeeManagementApp
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.64151F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.35849F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 157F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 165F));
             this.tableLayoutPanel1.Controls.Add(this.btnNewDepartment, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnDepartmentDelete, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnLoadDepartment, 1, 0);
@@ -208,7 +208,7 @@ namespace EmployeeManagementApp
             this.btnNewDepartment.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnNewDepartment.Location = new System.Drawing.Point(3, 3);
             this.btnNewDepartment.Name = "btnNewDepartment";
-            this.btnNewDepartment.Size = new System.Drawing.Size(56, 26);
+            this.btnNewDepartment.Size = new System.Drawing.Size(52, 26);
             this.btnNewDepartment.TabIndex = 0;
             this.btnNewDepartment.Text = "New";
             this.btnNewDepartment.UseVisualStyleBackColor = true;
@@ -217,7 +217,7 @@ namespace EmployeeManagementApp
             // btnDepartmentDelete
             // 
             this.btnDepartmentDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDepartmentDelete.Location = new System.Drawing.Point(165, 3);
+            this.btnDepartmentDelete.Location = new System.Drawing.Point(161, 3);
             this.btnDepartmentDelete.Name = "btnDepartmentDelete";
             this.btnDepartmentDelete.Size = new System.Drawing.Size(88, 26);
             this.btnDepartmentDelete.TabIndex = 2;
@@ -228,9 +228,9 @@ namespace EmployeeManagementApp
             // btnLoadDepartment
             // 
             this.btnLoadDepartment.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLoadDepartment.Location = new System.Drawing.Point(65, 3);
+            this.btnLoadDepartment.Location = new System.Drawing.Point(61, 3);
             this.btnLoadDepartment.Name = "btnLoadDepartment";
-            this.btnLoadDepartment.Size = new System.Drawing.Size(62, 26);
+            this.btnLoadDepartment.Size = new System.Drawing.Size(58, 26);
             this.btnLoadDepartment.TabIndex = 1;
             this.btnLoadDepartment.Text = "Load";
             this.btnLoadDepartment.UseVisualStyleBackColor = true;
@@ -243,6 +243,7 @@ namespace EmployeeManagementApp
             this.dgvDepartment.Name = "dgvDepartment";
             this.dgvDepartment.RowHeadersWidth = 51;
             this.dgvDepartment.RowTemplate.Height = 29;
+            this.dgvDepartment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDepartment.Size = new System.Drawing.Size(558, 242);
             this.dgvDepartment.TabIndex = 13;
             this.dgvDepartment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartment_CellContentClick);

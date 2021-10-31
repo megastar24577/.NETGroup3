@@ -79,9 +79,18 @@ namespace EmployeeManagementApp
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (d == DialogResult.Yes)
             {
-                Employee deleteEmployee = employeeRepository.GetEmployeeById(employeeId);
-                employeeRepository.DeleteEmployee(deleteEmployee);
-                loadManagerList();
+                try
+                {
+                    Employee deleteEmployee = employeeRepository.GetEmployeeById(employeeId);
+                    employeeRepository.DeleteEmployee(deleteEmployee);
+                    loadManagerList();
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception);
+                    MessageBox.Show("Manager Is Manage Department! Please Remove Manager From Department First");
+                }
+                
             }
         }
 
@@ -90,6 +99,7 @@ namespace EmployeeManagementApp
             frmManagerDetail frmManagerDetail = new frmManagerDetail()
             {
                 isUpdate = false,
+                isAdmin = true,
             };
             frmManagerDetail.Show();
             frmManagerDetail.Closed += (sender, e) =>

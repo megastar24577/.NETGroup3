@@ -51,9 +51,7 @@ namespace EmployeeManagementApp
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtSearchManagerWithId = new System.Windows.Forms.TextBox();
             this.lbSearchByID = new System.Windows.Forms.Label();
-            this.lbFilterByName = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.txtFilterByName = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.grvMemberList = new System.Windows.Forms.DataGridView();
@@ -192,7 +190,7 @@ namespace EmployeeManagementApp
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.64151F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.35849F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 165F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
             this.tableLayoutPanel1.Controls.Add(this.btnNewDepartment, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnDepartmentDelete, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnLoadDepartment, 1, 0);
@@ -208,7 +206,7 @@ namespace EmployeeManagementApp
             this.btnNewDepartment.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnNewDepartment.Location = new System.Drawing.Point(3, 3);
             this.btnNewDepartment.Name = "btnNewDepartment";
-            this.btnNewDepartment.Size = new System.Drawing.Size(52, 26);
+            this.btnNewDepartment.Size = new System.Drawing.Size(72, 26);
             this.btnNewDepartment.TabIndex = 0;
             this.btnNewDepartment.Text = "New";
             this.btnNewDepartment.UseVisualStyleBackColor = true;
@@ -217,9 +215,9 @@ namespace EmployeeManagementApp
             // btnDepartmentDelete
             // 
             this.btnDepartmentDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDepartmentDelete.Location = new System.Drawing.Point(161, 3);
+            this.btnDepartmentDelete.Location = new System.Drawing.Point(177, 3);
             this.btnDepartmentDelete.Name = "btnDepartmentDelete";
-            this.btnDepartmentDelete.Size = new System.Drawing.Size(88, 26);
+            this.btnDepartmentDelete.Size = new System.Drawing.Size(97, 26);
             this.btnDepartmentDelete.TabIndex = 2;
             this.btnDepartmentDelete.Text = "Delete";
             this.btnDepartmentDelete.UseVisualStyleBackColor = true;
@@ -228,9 +226,9 @@ namespace EmployeeManagementApp
             // btnLoadDepartment
             // 
             this.btnLoadDepartment.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLoadDepartment.Location = new System.Drawing.Point(61, 3);
+            this.btnLoadDepartment.Location = new System.Drawing.Point(81, 3);
             this.btnLoadDepartment.Name = "btnLoadDepartment";
-            this.btnLoadDepartment.Size = new System.Drawing.Size(58, 26);
+            this.btnLoadDepartment.Size = new System.Drawing.Size(80, 26);
             this.btnLoadDepartment.TabIndex = 1;
             this.btnLoadDepartment.Text = "Load";
             this.btnLoadDepartment.UseVisualStyleBackColor = true;
@@ -284,9 +282,7 @@ namespace EmployeeManagementApp
             // 
             this.panel2.Controls.Add(this.txtSearchManagerWithId);
             this.panel2.Controls.Add(this.lbSearchByID);
-            this.panel2.Controls.Add(this.lbFilterByName);
             this.panel2.Controls.Add(this.btnDelete);
-            this.panel2.Controls.Add(this.txtFilterByName);
             this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Controls.Add(this.btnLoad);
             this.panel2.Controls.Add(this.grvMemberList);
@@ -312,15 +308,6 @@ namespace EmployeeManagementApp
             this.lbSearchByID.TabIndex = 8;
             this.lbSearchByID.Text = "Search with ID";
             // 
-            // lbFilterByName
-            // 
-            this.lbFilterByName.AutoSize = true;
-            this.lbFilterByName.Location = new System.Drawing.Point(304, 69);
-            this.lbFilterByName.Name = "lbFilterByName";
-            this.lbFilterByName.Size = new System.Drawing.Size(106, 20);
-            this.lbFilterByName.TabIndex = 7;
-            this.lbFilterByName.Text = "Filter by Name";
-            // 
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(100, 88);
@@ -330,13 +317,6 @@ namespace EmployeeManagementApp
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // txtFilterByName
-            // 
-            this.txtFilterByName.Location = new System.Drawing.Point(304, 90);
-            this.txtFilterByName.Name = "txtFilterByName";
-            this.txtFilterByName.Size = new System.Drawing.Size(139, 27);
-            this.txtFilterByName.TabIndex = 4;
             // 
             // btnSearch
             // 
@@ -430,9 +410,7 @@ namespace EmployeeManagementApp
         private System.Windows.Forms.Button btnSearchDepartment;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbSearchByID;
-        private System.Windows.Forms.Label lbFilterByName;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.TextBox txtFilterByName;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.DataGridView grvMemberList;

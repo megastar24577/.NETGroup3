@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessLayer;
 using BusinessLayer.Models;
 
 namespace DataAccess.Repository
@@ -11,7 +12,8 @@ namespace DataAccess.Repository
     {
         List<Salary> GetAllSalaries();
 
-        Salary GetSalaryById(string salaryId);
+        List<SalariesAndEmployeeDTO> GetSalariesWithMember(DateTime fromDate, DateTime toDate, string departId);
+        Salary GetSalaryById(int salaryId);
 
         Salary GetSalaryByEmployeeId(string employeeId);
 

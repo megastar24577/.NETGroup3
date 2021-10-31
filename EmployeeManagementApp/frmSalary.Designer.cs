@@ -43,6 +43,7 @@ namespace EmployeeManagementApp
             this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
             this.grvSalary = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtWorkHours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvSalary)).BeginInit();
@@ -50,6 +51,7 @@ namespace EmployeeManagementApp
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnDelete);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.btnUpdate);
             this.panel2.Controls.Add(this.txtWorkHours);
@@ -78,6 +80,7 @@ namespace EmployeeManagementApp
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Enabled = false;
             this.btnUpdate.Location = new System.Drawing.Point(138, 37);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(94, 29);
@@ -92,6 +95,7 @@ namespace EmployeeManagementApp
             this.txtWorkHours.Name = "txtWorkHours";
             this.txtWorkHours.Size = new System.Drawing.Size(129, 27);
             this.txtWorkHours.TabIndex = 15;
+            this.txtWorkHours.BindingContextChanged += new System.EventHandler(this.txtWorkHours_BindingContextChanged);
             // 
             // label1
             // 
@@ -193,6 +197,17 @@ namespace EmployeeManagementApp
             this.label3.TabIndex = 17;
             this.label3.Text = "SALARY";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Location = new System.Drawing.Point(238, 90);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(94, 29);
+            this.btnDelete.TabIndex = 18;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // from
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -201,6 +216,7 @@ namespace EmployeeManagementApp
             this.Controls.Add(this.panel2);
             this.Name = "from";
             this.Size = new System.Drawing.Size(1300, 650);
+            this.Load += new System.EventHandler(this.from_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtWorkHours)).EndInit();
@@ -226,5 +242,6 @@ namespace EmployeeManagementApp
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.NumericUpDown txtWorkHours;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

@@ -16,7 +16,9 @@ namespace EmployeeManagementApp
     public partial class frmMenu : Form
     {
         private IEmployeeRepository employeeRepository;
+
         public Employee CurrentMember { get; set; }
+
 
         public bool IsAdmin { get; set; }
 

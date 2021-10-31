@@ -23,7 +23,7 @@ namespace DataAccess.Repository
         public List<SalariesAndEmployeeDTO> GetSalariesWithMember(DateTime fromDate, DateTime toDate, string departId)
             => salaryDao.GetSalariesWithMember(fromDate,toDate,departId);
 
-        public Salary GetSalaryById(string salaryId)
+        public Salary GetSalaryById(int salaryId)
             => salaryDao.GetSalaryById(salaryId);
 
         public Salary GetSalaryByEmployeeId(string employeeId)

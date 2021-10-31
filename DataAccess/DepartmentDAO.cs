@@ -24,6 +24,14 @@ namespace DataAccess
             }
         }
 
+        public Department GetDepartmentOfManager(string managerId)
+        {
+            using (_databaseContext = new EManagerPRNContext())
+            {
+                return _databaseContext.Departments.FirstOrDefault(depart => depart.ManagerId == managerId);
+            }
+        }
+
         public void CreateDepartment(Department department)
         {
             using (_databaseContext = new EManagerPRNContext())

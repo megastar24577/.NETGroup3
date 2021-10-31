@@ -19,7 +19,7 @@ namespace DataAccess
             }
         }
 
-        public Salary GetSalaryById(string salaryId)
+        public Salary GetSalaryById(int salaryId)
         {
             using (_databaseContext = new EManagerPRNContext())
             {
@@ -40,8 +40,17 @@ namespace DataAccess
         {
             using (_databaseContext = new EManagerPRNContext())
             {
-                _databaseContext.Add(newSalary);
-                _databaseContext.SaveChanges();
+                Salary check = _databaseContext.Salaries
+                    .FirstOrDefault(salary => salary.EmployeeId == newSalary.EmployeeId && salary.SalaryDate == newSalary.SalaryDate);
+                if (check != null)
+                {
+                    return;
+                }
+                else
+                {
+                    _databaseContext.Add(newSalary);
+                    _databaseContext.SaveChanges();
+                }
             }
         }
 

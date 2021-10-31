@@ -13,7 +13,7 @@ namespace DataAccess.Repository
         List<Salary> GetAllSalaries();
 
         List<SalariesAndEmployeeDTO> GetSalariesWithMember(DateTime fromDate, DateTime toDate, string departId);
-        Salary GetSalaryById(string salaryId);
+        Salary GetSalaryById(int salaryId);
 
         Salary GetSalaryByEmployeeId(string employeeId);
 

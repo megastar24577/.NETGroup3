@@ -19,6 +19,9 @@ namespace DataAccess.Repository
         public Department GetDepartmentById(string departmentId)
             => departmentDao.GetDepartmentById(departmentId);
 
+        public Department GetDepartmentOfManager(string managerId)
+            => departmentDao.GetDepartmentOfManager(managerId);
+
         public void UpdateDepartment(Department updateDepartment)
             => departmentDao.UpdateDeparment(updateDepartment);
 

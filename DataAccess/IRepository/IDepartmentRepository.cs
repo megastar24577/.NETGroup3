@@ -13,6 +13,8 @@ namespace DataAccess.Repository
 
         Department GetDepartmentById(string departmentId);
 
+        Department GetDepartmentOfManager(string managerId);
+
         void UpdateDepartment(Department updateDepartment);
 
         void DeleteDepartment(Department deleteDepartment);

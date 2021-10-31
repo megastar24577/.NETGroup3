@@ -130,11 +130,6 @@ namespace BusinessLayer.Models
             {
                 entity.ToTable("Salary");
 
-                entity.Property(e => e.SalaryId)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
                 entity.Property(e => e.EmployeeId)
                     .IsRequired()
                     .HasMaxLength(10)

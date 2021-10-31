@@ -9,7 +9,7 @@ namespace BusinessLayer
 {
     public class SalariesAndEmployeeDTO
     {
-        public string SalaryId { get; set; }
+        public int SalaryId { get; set; }
         public string EmployeeId { get; set; }
         public string EmployeeName { get; set; }
 

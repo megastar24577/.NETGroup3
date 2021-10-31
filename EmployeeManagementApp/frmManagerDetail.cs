@@ -16,6 +16,7 @@ namespace MyStoreWinApp
         private DeparmentRepository deparmentRepository;
         public bool isUpdate { get; set; }
 
+        public bool isAdmin { get; set; }
         public bool isMember { get; set; } = false;
 
         public Employee employeeInfomation { get; set; }
@@ -69,6 +70,13 @@ namespace MyStoreWinApp
 
                 }
             }
+
+            if (isAdmin)
+            {
+                roleCombobox.Enabled = false;
+                string adminCreateRole = roleRepository.GetRoleNameByRoleId("R2");
+                roleCombobox.SelectedText = adminCreateRole;
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -94,17 +102,24 @@ namespace MyStoreWinApp
                 RoleId = selectedRole.RoleId,
                 DepartmentId = departmentId,
             };
-
-            if (isUpdate)
+            try
             {
-                employeeRepository.UpdateEmployee(newEmployee);
+                if (isUpdate)
+                {
+                    employeeRepository.UpdateEmployee(newEmployee);
+                }
+                else
+                {
+                    employeeRepository.AddEmployee(newEmployee);
+                }
+                Close();
             }
-            else
+            catch (Exception ex)
             {
-                employeeRepository.AddEmployee(newEmployee);
+                MessageBox.Show(ex.Message);
             }
+            
 
-            Close();
         }
 
 

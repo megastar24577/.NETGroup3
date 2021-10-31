@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BusinessLayer.Models;
 using Microsoft.EntityFrameworkCore;
@@ -48,8 +49,16 @@ namespace DataAccess
         {
             using (_databaseContext = new EManagerPRNContext())
             {
-                _databaseContext.Add(newEmployee);
-                _databaseContext.SaveChanges();
+                var check = _databaseContext.Employees.Find(newEmployee.EmployeeId);
+                if (check != null)
+                {
+                    throw new Exception("Employee Id Existed!");
+                }
+                else
+                {
+                    _databaseContext.Add(newEmployee);
+                    _databaseContext.SaveChanges();
+                }
             }
         }
 

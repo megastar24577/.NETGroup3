@@ -24,6 +24,7 @@ namespace DataAccess
             }
         }
 
+
         public Department GetDepartmentOfManager(string managerId)
         {
             using (_databaseContext = new EManagerPRNContext())

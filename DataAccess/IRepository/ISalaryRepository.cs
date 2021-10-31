@@ -15,7 +15,7 @@ namespace DataAccess.Repository
         List<SalariesAndEmployeeDTO> GetSalariesWithMember(DateTime fromDate, DateTime toDate, string departId);
         Salary GetSalaryById(int salaryId);
 
-        Salary GetSalaryByEmployeeId(string employeeId);
+        Salary GetSalaryByEmployeeIdAndDate(string employeeId, DateTime date);
 
         void UpdateSalary(Salary updateSalary);
 

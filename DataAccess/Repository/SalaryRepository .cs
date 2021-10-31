@@ -26,8 +26,8 @@ namespace DataAccess.Repository
         public Salary GetSalaryById(int salaryId)
             => salaryDao.GetSalaryById(salaryId);
 
-        public Salary GetSalaryByEmployeeId(string employeeId)
-            => salaryDao.GetSalaryByEmployeeId(employeeId);
+        public Salary GetSalaryByEmployeeIdAndDate(string employeeId, DateTime date)
+            => salaryDao.GetSalaryByEmployeeIdAndDate(employeeId, date);
 
         public void UpdateSalary(Salary updateSalary)
             => salaryDao.UpdateSalary(updateSalary);

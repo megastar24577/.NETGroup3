@@ -72,5 +72,16 @@ namespace DataAccess
                     member.Email == email && member.Password == password);
             }
         }
+
+        public List<Employee> GetEmployeesByDepartmentID(string DepartmentId)
+        {
+            List<Employee> FList = new List<Employee>();
+            for (int i = 1; i <= _databaseContext.Employees.ToList().Count; i++)
+            {
+                if (_databaseContext.Employees.ToList()[i - 1].DepartmentId == DepartmentId) { FList.Add(_databaseContext.Employees.ToList()[i - 1]); }
+            }
+            return FList;
+        }
+
     }
 }

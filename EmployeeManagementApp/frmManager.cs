@@ -119,8 +119,8 @@ namespace EmployeeManagementApp
             txtEmployeeID.ReadOnly = false;
             txtPassword.ReadOnly = false;
             txtPhone.ReadOnly = false;
-            txtDepartmentID.Visible = false;
-            txtRoleID.Visible = false;
+            txtDepartmentID.Enabled = false;
+            txtRoleID.Enabled = false;
             txtAddress.ReadOnly = false;
             btnCancel.Visible = true;
             btnConfirm.Visible = true;
@@ -134,8 +134,8 @@ namespace EmployeeManagementApp
             txtEmployeeID.ReadOnly = true;
             txtPassword.ReadOnly = true;
             txtPhone.ReadOnly = true;
-            txtDepartmentID.Visible = true;
-            txtRoleID.Visible = true;
+            txtDepartmentID.Enabled = false;
+            txtRoleID.Enabled = false;
             txtAddress.ReadOnly = true;
             btnCancel.Visible = false;
             btnConfirm.Visible = false;
@@ -178,6 +178,11 @@ namespace EmployeeManagementApp
                     return;
                 }
                 Employee deleteEmplyee = employeeRepository.GetEmployeeById(txtEmployeeID.Text);
+                if (deleteEmplyee.Salaries.Count > 0)
+                {
+                    MessageBox.Show("This Employee Has Salary, Clear this Employee's Salaries First!");
+                    return;
+                }
                 employeeRepository.DeleteEmployee(deleteEmplyee);
                 list = employeeRepository.GetEmployeeOfDepartment(manaDepart.DepartmentId);
                 LoadEmployeeList();
@@ -239,6 +244,14 @@ namespace EmployeeManagementApp
         {
             try
             {
+                if (string.IsNullOrEmpty(txtEmployeeID.Text) ||
+                    string.IsNullOrEmpty(txtEmail.Text) ||
+                    string.IsNullOrEmpty(txtPassword.Text)
+                )
+                {
+                    MessageBox.Show("Employee Id, Email, Password are required!");
+                    return;
+                }
                 //Get current Manager Department
                 Department manaDepart = departmentRepository.GetDepartmentOfManager(CurrentUser.EmployeeId);
                 if (manaDepart == null)

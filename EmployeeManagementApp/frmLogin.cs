@@ -51,6 +51,7 @@ namespace MyStoreWinApp
                     menuForm.IsAdmin = true;
                     menuForm.Closed += (sender, e) => this.Close();
                     this.Hide();
+                    menuForm.frmMenu_Load(sender, e);
                     menuForm.Show();
                 }
                 else
@@ -67,6 +68,7 @@ namespace MyStoreWinApp
                         menuForm.CurrentMember = currentUser;
                         menuForm.Closed += (sender, e) => this.Close();
                         this.Hide();
+                        menuForm.frmMenu_Load(sender, e);
                         menuForm.Show();
                     }
                 }

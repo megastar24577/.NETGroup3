@@ -32,7 +32,6 @@ namespace EmployeeManagementApp
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtTiltle = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtDepartmentManagerId = new System.Windows.Forms.TextBox();
             this.lbDepartmentId = new System.Windows.Forms.Label();
             this.txtDepartmentID = new System.Windows.Forms.TextBox();
             this.lbDepartmentName = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@ namespace EmployeeManagementApp
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.comboBoxManagerId = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -55,7 +55,7 @@ namespace EmployeeManagementApp
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.22727F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.77273F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
             this.tableLayoutPanel2.Controls.Add(this.txtTiltle, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(57, 12);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -84,7 +84,6 @@ namespace EmployeeManagementApp
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78F));
-            this.tableLayoutPanel1.Controls.Add(this.txtDepartmentManagerId, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.lbDepartmentId, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtDepartmentID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbDepartmentName, 0, 1);
@@ -92,6 +91,7 @@ namespace EmployeeManagementApp
             this.tableLayoutPanel1.Controls.Add(this.txtDepartmentBaseSalary, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lbBaseSalary, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.lbManagerId, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxManagerId, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(100, 119);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -102,14 +102,6 @@ namespace EmployeeManagementApp
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(673, 330);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // txtDepartmentManagerId
-            // 
-            this.txtDepartmentManagerId.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDepartmentManagerId.Location = new System.Drawing.Point(248, 199);
-            this.txtDepartmentManagerId.Name = "txtDepartmentManagerId";
-            this.txtDepartmentManagerId.Size = new System.Drawing.Size(324, 27);
-            this.txtDepartmentManagerId.TabIndex = 13;
             // 
             // lbDepartmentId
             // 
@@ -219,6 +211,15 @@ namespace EmployeeManagementApp
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // comboBoxManagerId
+            // 
+            this.comboBoxManagerId.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxManagerId.FormattingEnabled = true;
+            this.comboBoxManagerId.Location = new System.Drawing.Point(251, 195);
+            this.comboBoxManagerId.Name = "comboBoxManagerId";
+            this.comboBoxManagerId.Size = new System.Drawing.Size(319, 28);
+            this.comboBoxManagerId.TabIndex = 13;
+            // 
             // frmDepartmentDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -254,7 +255,7 @@ namespace EmployeeManagementApp
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtDepartmentManagerId;
         private System.Windows.Forms.Label lbManagerId;
+        private System.Windows.Forms.ComboBox comboBoxManagerId;
     }
 }

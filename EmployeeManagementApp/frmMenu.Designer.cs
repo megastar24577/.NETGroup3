@@ -29,24 +29,25 @@ namespace EmployeeManagementApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel = new System.Windows.Forms.Panel();
+            this.mainPanel = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.managerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ownSalaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel
+            // mainPanel
             // 
-            this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel.Location = new System.Drawing.Point(0, 30);
-            this.panel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1332, 673);
-            this.panel.TabIndex = 3;
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(0, 30);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(1332, 673);
+            this.mainPanel.TabIndex = 3;
             // 
             // menuStrip1
             // 
@@ -56,7 +57,8 @@ namespace EmployeeManagementApp
             this.managerToolStripMenuItem,
             this.salaryToolStripMenuItem,
             this.profileToolStripMenuItem,
-            this.ownSalaryToolStripMenuItem});
+            this.ownSalaryToolStripMenuItem,
+            this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
@@ -99,12 +101,19 @@ namespace EmployeeManagementApp
             this.ownSalaryToolStripMenuItem.Text = "OwnSalary";
             this.ownSalaryToolStripMenuItem.Click += new System.EventHandler(this.ownSalaryToolStripMenuItem_Click);
             // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1332, 703);
-            this.Controls.Add(this.panel);
+            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.menuStrip1);
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -119,12 +128,13 @@ namespace EmployeeManagementApp
 
         #endregion
 
-        private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem managerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem profileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ownSalaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }

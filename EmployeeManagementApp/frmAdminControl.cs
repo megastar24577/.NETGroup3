@@ -49,6 +49,7 @@ namespace EmployeeManagementApp
             frmManagerDetail frmManagerDetail = new frmManagerDetail()
             {
                 isUpdate = true,
+                isAdmin = true,
                 employeeInfomation = updateEmployee
             };
             frmManagerDetail.Show();

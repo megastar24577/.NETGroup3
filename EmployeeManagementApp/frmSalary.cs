@@ -79,7 +79,11 @@ namespace EmployeeManagementApp
             try
             {
                 txtWorkHours.DataBindings.Clear();
-
+                if (managerDepartment == null)
+                {
+                    MessageBox.Show("You haven't manage any department yet!");
+                    return;
+                }
                 source.DataSource = salaryRepository.GetSalariesWithMember(fromDate, toDate, managerDepartment.DepartmentId);
                 
                 txtWorkHours.DataBindings.Add("Text", source, "WorkHours");
@@ -126,6 +130,11 @@ namespace EmployeeManagementApp
                 if (d == DialogResult.OK)
                 {
                     Department ManagingDepart = departmentRepository.GetDepartmentOfManager(CurrentUser.EmployeeId);
+                    if (ManagingDepart == null)
+                    {
+                        MessageBox.Show("You haven't manage any department yet!");
+                        return;
+                    }
                     List<Employee> listEmployees = employeeRepository.GetEmployeeOfDepartment(ManagingDepart.DepartmentId);
                     foreach (Employee employee in listEmployees)
                     {

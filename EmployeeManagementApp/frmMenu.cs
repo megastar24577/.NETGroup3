@@ -30,7 +30,6 @@ namespace EmployeeManagementApp
             get
             {
                 if (_instance is null) _instance = new frmMenu();
-
                 return _instance;
             }
         }
@@ -38,9 +37,9 @@ namespace EmployeeManagementApp
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //If the is no frm control then create new else bring it to front
-            if (!panel.Controls.Contains(frmAdminControl.Instance))
+            if (!mainPanel.Controls.Contains(frmAdminControl.Instance))
             {
-                panel.Controls.Add(frmAdminControl.Instance);
+                mainPanel.Controls.Add(frmAdminControl.Instance);
                 frmAdminControl.Instance.Dock = DockStyle.Fill;
                 frmAdminControl.Instance.BringToFront();
             }
@@ -50,8 +49,9 @@ namespace EmployeeManagementApp
             }
         }
 
-        private void frmMenu_Load(object sender, EventArgs e)
+        public void frmMenu_Load(object sender, EventArgs e)
         {
+            mainPanel.Controls.Clear();
             Role memberRole = roleRepository.GetRoleIdByRoleName("Member");
             //If logged in user not admin then invisible admin tool strip
             if (IsAdmin == false)
@@ -61,18 +61,23 @@ namespace EmployeeManagementApp
 
                 if (CurrentMember.RoleId == memberRole.RoleId)
                 {
+                    ownSalaryToolStripMenuItem.Visible = true;
+                    profileToolStripMenuItem.Visible = true;
                     managerToolStripMenuItem.Visible = false;
                     salaryToolStripMenuItem.Visible = false;
                 }
                 else
                 {
                     ownSalaryToolStripMenuItem.Visible = false;
+                    profileToolStripMenuItem.Visible = true;
+                    managerToolStripMenuItem.Visible = true;
+                    salaryToolStripMenuItem.Visible = true;
                 }
             }
             else
             {
                 //If admin only show admin tool strip
-
+                adminToolStripMenuItem.Visible = true;
                 managerToolStripMenuItem.Visible = false;
                 salaryToolStripMenuItem.Visible = false;
                 profileToolStripMenuItem.Visible = false;
@@ -98,9 +103,9 @@ namespace EmployeeManagementApp
         private void salaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //If the is no frm control then create new else bring it to front
-            if (!panel.Controls.Contains(from.Instance))
+            if (!mainPanel.Controls.Contains(from.Instance))
             {
-                panel.Controls.Add(from.Instance);
+                mainPanel.Controls.Add(from.Instance);
                 from.Instance.Dock = DockStyle.Fill;
                 from.Instance.CurrentUser = CurrentMember;
                 from.Instance.BringToFront();
@@ -114,9 +119,9 @@ namespace EmployeeManagementApp
         private void managerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //If the is no frm control then create new else bring it to front
-            if (!panel.Controls.Contains(frmManager.Instance))
+            if (!mainPanel.Controls.Contains(frmManager.Instance))
             {
-                panel.Controls.Add(frmManager.Instance);
+                mainPanel.Controls.Add(frmManager.Instance);
                 frmManager.Instance.Dock = DockStyle.Fill;
                 frmManager.Instance.CurrentUser = CurrentMember;
                 frmManager.Instance.BringToFront();
@@ -134,6 +139,14 @@ namespace EmployeeManagementApp
                 CurrentEmployee = CurrentMember
             };
             frmOwnSalary.Show();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin newLogin = new frmLogin();
+            newLogin.Closed += (sender, e) => this.Close();
+            this.Hide();
+            newLogin.Show();
         }
     }
 }

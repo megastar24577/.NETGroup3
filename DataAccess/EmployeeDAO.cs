@@ -22,7 +22,7 @@ namespace DataAccess
         {
             using (_databaseContext = new EManagerPRNContext())
             {
-                return _databaseContext.Employees.Include(e => e.Salaries)
+                return _databaseContext.Employees
                     .Where(employee => employee.RoleId == roleId).ToList();
             }
         }
@@ -40,7 +40,7 @@ namespace DataAccess
         {
             using (_databaseContext = new EManagerPRNContext())
             {
-                return _databaseContext.Employees
+                return _databaseContext.Employees.Include(e => e.Salaries)
                     .FirstOrDefault(employee => employee.EmployeeId == employeeId);
             }
         }

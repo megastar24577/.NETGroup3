@@ -40,6 +40,17 @@ namespace MyStoreWinApp
             {
                 roleCombobox.Items.Add(role.RoleName);
             }
+            //If is admin customize some in form
+            if (isAdmin)
+            {
+                roleCombobox.Enabled = false;
+                if (!isUpdate)
+                {
+                    string adminCreateRole = roleRepository.GetRoleNameByRoleId("R2");
+                    roleCombobox.SelectedText = adminCreateRole;
+                }
+                
+            }
 
             List<Department> listOfDepartments = deparmentRepository.GetAllDepartments();
             foreach (var depart in listOfDepartments)
@@ -51,7 +62,6 @@ namespace MyStoreWinApp
             if (isUpdate)
             {
                 string currentUserRole = roleRepository.GetRoleNameByRoleId(employeeInfomation.RoleId);
-
                 txtEmployeeId.Text = employeeInfomation.EmployeeId;
                 txtEmployeeName.Text = employeeInfomation.Fullname;
                 txtEmail.Text = employeeInfomation.Email;
@@ -71,16 +81,20 @@ namespace MyStoreWinApp
                 }
             }
 
-            if (isAdmin)
-            {
-                roleCombobox.Enabled = false;
-                string adminCreateRole = roleRepository.GetRoleNameByRoleId("R2");
-                roleCombobox.SelectedText = adminCreateRole;
-            }
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtEmployeeId.Text) ||
+                string.IsNullOrEmpty(txtEmail.Text) ||
+                string.IsNullOrEmpty(txtPassword.Text) ||
+                string.IsNullOrEmpty(roleCombobox.Text)
+                )
+            {
+                MessageBox.Show("Employee Id, Email, Password and Role are required!");
+                return;
+            }
             Role selectedRole = roleRepository.GetRoleIdByRoleName(roleCombobox.Text);
             //Check if department id not selected anything then convert it to null
             string departmentId = deparmentCombobox.Text;

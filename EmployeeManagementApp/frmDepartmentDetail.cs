@@ -1,30 +1,41 @@
 ﻿using BusinessLayer.Models;
 using DataAccess.Repository;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace EmployeeManagementApp
 {
     public partial class frmDepartmentDetail : Form
     {
+        public IDepartmentRepository deparmentRepository { get; set; }
+        public IEmployeeRepository employeeRepository { get; set; }
         public frmDepartmentDetail()
         {
             InitializeComponent();
+            deparmentRepository = new DeparmentRepository();
+            employeeRepository = new EmployeeRepository();
         }
         
         //---------------------------------------------------------------
-        public IDepartmentRepository deparmentRepository { get; set; }
+
+        private string managerRoleId = "R2";
         public bool InsertOrUpdate { get; set; }
         public Department DepartmentInfo { get; set; }
 
         private void frmDepartmentDetail_Load(object sender, EventArgs e)
         {
+            List<Employee> managerList = employeeRepository.GetAllManager(managerRoleId);
+            foreach (Employee manager in managerList)
+            {
+                comboBoxManagerId.Items.Add(manager.EmployeeId);
+            }
             txtDepartmentID.Enabled = !InsertOrUpdate;
             if(InsertOrUpdate == true)
             {
                 txtDepartmentID.Text = DepartmentInfo.DepartmentId;
                 txtDepartmentName.Text = DepartmentInfo.DepartmentName;
-                txtDepartmentManagerId.Text = DepartmentInfo.ManagerId;
+                comboBoxManagerId.SelectedText = DepartmentInfo.ManagerId;
                 txtDepartmentBaseSalary.Text = DepartmentInfo.BaseSalary.ToString();
             }
         }
@@ -34,9 +45,14 @@ namespace EmployeeManagementApp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtDepartmentID.Text) || string.IsNullOrEmpty(txtDepartmentBaseSalary.Text))
+            {
+                MessageBox.Show("Depart Id and Base Salary are Required!");
+                return;
+            }
             try
             {
-                var managerIdCheck = txtDepartmentManagerId.Text;
+                var managerIdCheck = comboBoxManagerId.Text;
                 if (managerIdCheck == "")
                 {
                     managerIdCheck = null;
